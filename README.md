@@ -3,8 +3,12 @@ I apply machine learning (ML) techniques to Snowplow web event data to understan
 
 ### Data Transformation 
 The distillation of the raw data into a transformed feature set with labels is handled by the iPython notebook 'Notebook 1 - Data Munging.'
+<div align="center">
+<img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/Data_Transformation.png" width="500" height="400" />
 
-### Expoloratory Analysis
+
+</div>
+### Exploratory Analysis
 The exploratory analysis of the initial feature set is handled in the iPython notebook 'Notebook 2 - Exploratory Analysis.'
 <div align="center">
 <img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/exploratory_analysis-labels.png" width="500" height="400" />

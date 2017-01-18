@@ -1,0 +1,97 @@
+\documentclass{article} % Try also "scrartcl" or "paper"
+\usepackage{blindtext} % for dummy text
+\usepackage{hyperref}
+\usepackage{pdflscape}
+\usepackage[margin=1in]{geometry}
+% \usepackage[margin=2cm]{geometry}   % to change margins
+% \usepackage{titling}             % Uncomment both to   
+% \setlength{\droptitle}{-2cm}     % change title position 
+\author{Benjamin S. Knight}
+\title{%\vspace{-1.5cm}            % Another way to do
+Leveraging Snowplow Event Tracking for \\ Better Understanding Visitor Conversion}
+\begin{document}
+\maketitle
+\section{Background}
+\indent\indent The central goal of this research is marketing analytics. I work for a software as a service (SaaS) company that uses
+\href{http://snowplowanalytics.com/}{Snowplow} - a web event tracker capable of handling tens of millions of events per day. Using this data, I hope to answer the question of how different visitor experiences at our company's marketing site relate to the probability of those visitors ultimately becoming paying customers. \\
+\indent This sort of information can be useful in determining what portions of the marketing site should receive priority with respect to A/B testing, new content, and so forth. At the same time, having awareness of visitors with a higher than normal likelihood of becoming customers would help the Sales Department better utilize scarce resources.
+
+\section{Problem Statement}
+\indent\indent To what extent can we infer a visitor's likelihood of becoming a paying customer based upon that visitor's experience on the company marketing site? Assuming that the predicted visitor behavior is superior to blind guessing, what specific factors (both within and outside of the company's control) contribute to a visitor's likelihood of becoming a paying customer?
+
+\section{Datasets and Inputs}
+\indent\indent The raw Snowplow data available to us is ~15 gigabytes spanning ~300 variables and tens of millions of events from November 2015 to January 2017. When we omit fields that are not in active use, are redundant, contain personal identifiable information (P.I.I.), or which cannot have any conceivable baring on customer conversion, then we are left with 14.6 million events and the variables shown in Table 1.\\
+\indent I use the phrase `variable' as opposed to feature, since this dataset will need to undergo substantial transformation before we can employ any supervised learning technique. Each row has an `event\_id' along with an `event\_name' and a `page\_url.' The event\_id is the row's unique identifier, the event\_name is the type of event, and the page\_url is the URL within the marketing site where the event took place. \\
+\indent In transforming the data, we will need to create features by creating combinations of event types and distinct URLs, and counting the number of occurrences while grouping on accounts. For instance, if `.../payment\_plan.com' is a frequent page url, then the number of page views on payment\_plan.com would be one feature, the number of page pings would be another, as would the number of web forms submitted, and so forth. Given that there are six distinct event types and dozens of URLs within the marketing site, then the feature space will likely be in the hundreds of features. This feature space will only widen as we add additional variables to the mix including geo\_region, number of visitors per account, and so forth.\\
+\indent At the same time, we will need to filter the data. Since we are interested in the causal relationship between visitors' marketing site experiences and whether they ultimately became paying customers, we can and should omit all events that occur after the time-stamp `cc\_date\_added' - the date when a customer first added a credit card to their account.
+\begin{landscape}
+\begin{table}[h!]
+\centering
+\begin{tabular}{| l | l |} 
+\hline
+Snowplow Variable Name  & Snowplow Variable Description  \\ [0.5ex] 
+\hline\hline
+event\_id   & The unique Snowplow event identifier \\
+\hline
+account\_id & The account number if an account is associated with the domain\_userid     \\ 
+\hline
+reg\_date & The date an account was registered  \\
+\hline
+cc\_date\_added & The date a credit card was added \\
+\hline
+collector\_tstamp & The timestamp (in UTC) when the Snowplow collector first recorded the event  \\
+\hline
+domain\_userid & This corresponds to a Snowplow cookie and will tend to correspond to a single internet device  \\ 
+\hline
+domain\_sessionidx & The number of sessions to date that the domain\_userid has been tracked \\
+\hline
+domain\_sessionid & The unique identifier for the Snowplow cookie/session \\
+\hline
+event\_name & The type of event recorded  \\
+\hline
+geo\_country & The ISO 3166-1 code for the country that the visitor's IP address is located \\
+\hline
+geo\_region\_name & The ISO-3166-2 code for country region that the visitor's IP address is in \\
+\hline
+geo\_city & The city the visitor's IP address is in  \\
+\hline
+page\_url & The page URL \\
+\hline
+page\_referrer & The URL of the referrer (previous page) \\
+\hline
+mkt\_medium & The type of traffic source (e.g. 'cpc', 'affiliate', 'organic', 'social')  \\
+\hline
+mkt\_source & The company / website where the traffic came from (e.g. 'Google', 'Facebook' \\
+\hline
+se\_category & The event type  \\ 
+\hline                               
+se\_action & The action performed / event name (e.g. 'add-to-basket', 'play-video') \\
+\hline
+br\_name   & The name of the visitor's browser       \\ 
+\hline                               
+os\_name     & The name of the vistor's operating system       \\   
+\hline               
+os\_timezone  & The client's operating system timezone       \\ 
+\hline        
+dvce\_ismobile  & Is the device mobile? (1 = 'yes')  \\
+\hline
+\end{tabular}
+\caption{Snowplow Variables within the Available Data}
+\label{table:1}
+\end{table}
+\end{landscape}
+
+                                                              
+\section{Solution Statement}
+\indent\indent I propose a two-part solution to this problem. The first question is how reliably can we predict conversion from visitor to paying customer. To this end, I will first experiment with SVMs using a RBF kernel. Other approaches may ulrimately prove to be more successful, but a RBF kernel is likley to serve us well as a starting point \footnote{https://arxiv.org/pdf/1606.00930v1.pdf} \\
+\indent The second question we must bear in mind is whether the results are actionable. Specifically, we want to know what features are most relevant for customer conversion. For instance, does visiting the pricing page increase or decrease the likelihood of the visitor becoming a paying customer? If so, how strong or weak is the correlation? To this end we can use logistic regression. Logistic regression has the advantage of being one of the most readily interpretable machine learning techniques. Specifically, we can transform the resulting coefficients into their log-likelihood equivalents and insight into the likely effect size and its statistical significance.   
+
+\section{Benchmark Model}
+\indent\indent For a \textit{very} rough baseline of our future model's performance, we can divide the number of distinct timestamps where a credit card was added (cc\_date\_added) by the number of distinct Snowplow cookies (domain\_userid). In this fashion, 4,298/1,014,324 = 0.004. On average, it takes 250 unique visitors to generate 1 paying customer. Put in different terms, we can predict with 0.996\% accuracy that all visitors will fail to convert to paying customers. However, this finding is not particularly helpful - thus the need for additional evaluation metrics.  
+
+\section{Evaluation Metrics}
+\indent\indent For assessing the efficacy of the machine learning model, I will employ a standard confusion matrix. While the confusion matrix will offer some important context, the ultimate evaluation metric will be the area under a precision-recall curve (AUC). Given that positive conversion events are extremely rare (0.4\%), a precision-recall curve is more appropriate in this context compared to the Receiver Operator Characteristic (ROC) curve.\footnote{http://ftp.cs.wisc.edu/machine-learning/shavlik-group/davis.icml06.pdf}\\
+\indent For the subsequent logistic model, it will be necessary to omit as many features from the model as possible (we are likely interested in the top 20 or so largest, statistically significant coefficients). Pruning features from the resulting model will likely be a process of trial and error. To this end, we can select the best performing model using the Bayesian Information Criterion (BIC).
+
+\end{document}
+

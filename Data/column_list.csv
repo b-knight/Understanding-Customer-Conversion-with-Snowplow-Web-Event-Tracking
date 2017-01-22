@@ -1,0 +1,710 @@
+,0
+0,/blog/should-you-outsource-your-order-fulfillment-processpage_view
+1,about/page_view
+2,blog/allpage_view
+3,blog/black-fridays-nowpage_view
+4,blog/topic/customer-spotlightpage_view
+5,blog/topic/inventory-managementpage_view
+6,blog/topic/inventory-setupspage_view
+7,blog/topic/master-your-datapage_view
+8,blog/topic/multichannel-operationspage_view
+9,blog/topic/stitch-updatespage_view
+10,blog/why-fba-sellers-need-amazon-repricing-toolspage_view
+11,chapter-2.htmlpage_view
+12,chapter-3.htmlpage_view
+13,chapter-5.htmlpage_view
+14,chapter-6.htmlpage_view
+15,chapter-8.htmlpage_view
+16,company_x.compage_view
+17,company_x.com/admin/billing-infopage_view
+18,company_x.com/admin/company-info-and-locationspage_view
+19,company_x.com/admin/my-profilepage_view
+20,company_x.com/amazon-inventory-managementpage_view
+21,company_x.com/bigcommerce-inventory-managementpage_view
+22,company_x.com/contactspage_view
+23,company_x.com/ebay-inventory-managementpage_view
+24,company_x.com/etsy-inventory-managementpage_view
+25,company_x.com/etsy-inventory-trackingpage_view
+26,company_x.com/features/inventorypage_view
+27,company_x.com/features/multichannelpage_view
+28,company_x.com/features/operationspage_view
+29,company_x.com/features/orderspage_view
+30,company_x.com/features/reportingpage_view
+31,company_x.com/integrations/manage-channelspage_view
+32,company_x.com/inventorypage_view
+33,company_x.com/magento-inventory-managementpage_view
+34,company_x.com/new-userpage_view
+35,company_x.com/orderspage_view
+36,company_x.com/paypal-inventory-managementpage_view
+37,company_x.com/purchase-orders/warehouse-transfer-orderspage_view
+38,company_x.com/quickbooks-inventory-managementpage_view
+39,company_x.com/quickbooks-online-inventory-managementpage_view
+40,company_x.com/shipstation-inventory-managementpage_view
+41,company_x.com/square-inventory-managementpage_view
+42,company_x.com/storenvy-inventory-managementpage_view
+43,company_x.com/vend-inventory-managementpage_view
+44,company_x.com/woocommerce-inventory-managementpage_view
+45,company_x.com/xero-inventory-managementpage_view
+46,contact-us/page_view
+47,dashboardpage_view
+48,dev_pagepage_view
+49,hs/manage-preferences/unsubscribe-allpage_view
+50,indinero-inventory-management-integrationpage_view
+51,integration-category/erp/page_view
+52,integration-category/marketplacespage_view
+53,integrations/channel-listingspage_view
+54,integrations/lightspeed-retailpage_view
+55,integrations/newgisticspage_view
+56,integrations/scout/page_view
+57,integrations/spscommerce-edi-inventory-managementpage_view
+58,inventory-management-softwarepage_view
+59,localhost:3000page_view
+60,loginpage_view
+61,lp/drop-shipping-management-softwarepage_view
+62,lp/inventory-accounting-softwarepage_view
+63,press/stitch-labs-announces-partnership-to-streamline-inventory-and-operations-for-high-growth-retailerpage_view
+64,pricing-7.1page_view
+65,pricing/page_view
+66,purchase-orders/detailpage_view
+67,request-demopage_view
+68,resource/reports/preparing-2016-retail-holiday-data-reportpage_view
+69,resource/reports/when-to-outsource-retail-operations-to-a-3pl-providerpage_view
+70,resource/webinarspage_view
+71,scout-inventory-managementpage_view
+72,signuppage_view
+73,slbmj2010page_view
+74,ultimate-guide-to-scaling-your-retail-business/managing-your-business-financespage_view
+75,why-stitchpage_view
+76,company_x.comevent
+77,company_x.com/admin/billing-infoevent
+78,company_x.com/admin/company-info-and-locationsevent
+79,company_x.com/admin/my-profileevent
+80,company_x.com/amazon-inventory-managementevent
+81,company_x.com/bigcommerce-inventory-managementevent
+82,company_x.com/contactsevent
+83,company_x.com/ebay-inventory-managementevent
+84,company_x.com/etsy-inventory-managementevent
+85,company_x.com/etsy-inventory-trackingevent
+86,company_x.com/features/inventoryevent
+87,company_x.com/features/multichannelevent
+88,company_x.com/features/operationsevent
+89,company_x.com/features/ordersevent
+90,company_x.com/features/reportingevent
+91,company_x.com/integrations/manage-channelsevent
+92,company_x.com/inventoryevent
+93,company_x.com/magento-inventory-managementevent
+94,company_x.com/new-userevent
+95,company_x.com/ordersevent
+96,company_x.com/paypal-inventory-managementevent
+97,company_x.com/purchase-orders/warehouse-transfer-ordersevent
+98,company_x.com/quickbooks-inventory-managementevent
+99,company_x.com/quickbooks-online-inventory-managementevent
+100,company_x.com/shipstation-inventory-managementevent
+101,company_x.com/square-inventory-managementevent
+102,company_x.com/storenvy-inventory-managementevent
+103,company_x.com/vend-inventory-managementevent
+104,company_x.com/woocommerce-inventory-managementevent
+105,company_x.com/xero-inventory-managementevent
+106,dashboardevent
+107,dev_pageevent
+108,indinero-inventory-management-integrationevent
+109,integrations/channel-listingsevent
+110,inventory-management-softwareevent
+111,localhost:3000event
+112,loginevent
+113,lp/drop-shipping-management-softwareevent
+114,purchase-orders/detailevent
+115,scout-inventory-managementevent
+116,signupevent
+117,slbmj2010event
+118,/blog/should-you-outsource-your-order-fulfillment-processlink_click
+119,about/link_click
+120,blog/alllink_click
+121,blog/topic/customer-spotlightlink_click
+122,blog/topic/inventory-managementlink_click
+123,blog/topic/inventory-setupslink_click
+124,blog/topic/master-your-datalink_click
+125,blog/topic/multichannel-operationslink_click
+126,blog/topic/stitch-updateslink_click
+127,chapter-5.htmllink_click
+128,company_x.comlink_click
+129,company_x.com/admin/my-profilelink_click
+130,company_x.com/amazon-inventory-managementlink_click
+131,company_x.com/bigcommerce-inventory-managementlink_click
+132,company_x.com/contactslink_click
+133,company_x.com/ebay-inventory-managementlink_click
+134,company_x.com/etsy-inventory-managementlink_click
+135,company_x.com/etsy-inventory-trackinglink_click
+136,company_x.com/features/inventorylink_click
+137,company_x.com/features/multichannellink_click
+138,company_x.com/features/operationslink_click
+139,company_x.com/features/orderslink_click
+140,company_x.com/features/reportinglink_click
+141,company_x.com/inventorylink_click
+142,company_x.com/magento-inventory-managementlink_click
+143,company_x.com/orderslink_click
+144,company_x.com/paypal-inventory-managementlink_click
+145,company_x.com/quickbooks-inventory-managementlink_click
+146,company_x.com/quickbooks-online-inventory-managementlink_click
+147,company_x.com/shipstation-inventory-managementlink_click
+148,company_x.com/square-inventory-managementlink_click
+149,company_x.com/storenvy-inventory-managementlink_click
+150,company_x.com/vend-inventory-managementlink_click
+151,company_x.com/woocommerce-inventory-managementlink_click
+152,company_x.com/xero-inventory-managementlink_click
+153,contact-us/link_click
+154,dashboardlink_click
+155,dev_pagelink_click
+156,indinero-inventory-management-integrationlink_click
+157,integration-category/erp/link_click
+158,integration-category/marketplaceslink_click
+159,integrations/channel-listingslink_click
+160,integrations/lightspeed-retaillink_click
+161,integrations/newgisticslink_click
+162,integrations/scout/link_click
+163,integrations/spscommerce-edi-inventory-managementlink_click
+164,inventory-management-softwarelink_click
+165,loginlink_click
+166,lp/drop-shipping-management-softwarelink_click
+167,pricing-7.1link_click
+168,pricing/link_click
+169,request-demolink_click
+170,resource/reports/preparing-2016-retail-holiday-data-reportlink_click
+171,resource/webinarslink_click
+172,scout-inventory-managementlink_click
+173,signuplink_click
+174,slbmj2010link_click
+175,ultimate-guide-to-scaling-your-retail-business/managing-your-business-financeslink_click
+176,why-stitchlink_click
+177,blog/allchange_form
+178,blog/topic/inventory-managementchange_form
+179,blog/topic/stitch-updateschange_form
+180,company_x.comchange_form
+181,company_x.com/features/inventorychange_form
+182,company_x.com/features/multichannelchange_form
+183,company_x.com/features/orderschange_form
+184,company_x.com/inventorychange_form
+185,company_x.com/quickbooks-inventory-managementchange_form
+186,contact-us/change_form
+187,dev_pagechange_form
+188,indinero-inventory-management-integrationchange_form
+189,integration-category/erp/change_form
+190,integration-category/marketplaceschange_form
+191,integrations/lightspeed-retailchange_form
+192,integrations/newgisticschange_form
+193,integrations/spscommerce-edi-inventory-managementchange_form
+194,inventory-management-softwarechange_form
+195,loginchange_form
+196,pricing/change_form
+197,request-demochange_form
+198,resource/reports/preparing-2016-retail-holiday-data-reportchange_form
+199,resource/webinarschange_form
+200,scout-inventory-managementchange_form
+201,signupchange_form
+202,slbmj2010change_form
+203,why-stitchchange_form
+204,company_x.comsubmit_form
+205,company_x.com/features/inventorysubmit_form
+206,company_x.com/features/multichannelsubmit_form
+207,company_x.com/features/orderssubmit_form
+208,company_x.com/inventorysubmit_form
+209,contact-us/submit_form
+210,dev_pagesubmit_form
+211,integration-category/erp/submit_form
+212,integration-category/marketplacessubmit_form
+213,integrations/lightspeed-retailsubmit_form
+214,integrations/newgisticssubmit_form
+215,integrations/spscommerce-edi-inventory-managementsubmit_form
+216,inventory-management-softwaresubmit_form
+217,loginsubmit_form
+218,pricing/submit_form
+219,resource/reports/preparing-2016-retail-holiday-data-reportsubmit_form
+220,resource/webinarssubmit_form
+221,scout-inventory-managementsubmit_form
+222,signupsubmit_form
+223,slbmj2010submit_form
+224,why-stitchsubmit_form
+225,/blog/should-you-outsource-your-order-fulfillment-processpage_ping
+226,about/page_ping
+227,blog/allpage_ping
+228,blog/black-fridays-nowpage_ping
+229,blog/topic/customer-spotlightpage_ping
+230,blog/topic/inventory-managementpage_ping
+231,blog/topic/inventory-setupspage_ping
+232,blog/topic/master-your-datapage_ping
+233,blog/topic/multichannel-operationspage_ping
+234,blog/topic/stitch-updatespage_ping
+235,blog/why-fba-sellers-need-amazon-repricing-toolspage_ping
+236,chapter-3.htmlpage_ping
+237,chapter-5.htmlpage_ping
+238,chapter-6.htmlpage_ping
+239,chapter-8.htmlpage_ping
+240,company_x.compage_ping
+241,company_x.com/admin/my-profilepage_ping
+242,company_x.com/amazon-inventory-managementpage_ping
+243,company_x.com/bigcommerce-inventory-managementpage_ping
+244,company_x.com/ebay-inventory-managementpage_ping
+245,company_x.com/etsy-inventory-managementpage_ping
+246,company_x.com/etsy-inventory-trackingpage_ping
+247,company_x.com/features/inventorypage_ping
+248,company_x.com/features/multichannelpage_ping
+249,company_x.com/features/operationspage_ping
+250,company_x.com/features/orderspage_ping
+251,company_x.com/features/reportingpage_ping
+252,company_x.com/inventorypage_ping
+253,company_x.com/magento-inventory-managementpage_ping
+254,company_x.com/orderspage_ping
+255,company_x.com/paypal-inventory-managementpage_ping
+256,company_x.com/quickbooks-inventory-managementpage_ping
+257,company_x.com/quickbooks-online-inventory-managementpage_ping
+258,company_x.com/shipstation-inventory-managementpage_ping
+259,company_x.com/square-inventory-managementpage_ping
+260,company_x.com/storenvy-inventory-managementpage_ping
+261,company_x.com/vend-inventory-managementpage_ping
+262,company_x.com/woocommerce-inventory-managementpage_ping
+263,company_x.com/xero-inventory-managementpage_ping
+264,contact-us/page_ping
+265,dashboardpage_ping
+266,dev_pagepage_ping
+267,hs/manage-preferences/unsubscribe-allpage_ping
+268,indinero-inventory-management-integrationpage_ping
+269,integration-category/erp/page_ping
+270,integration-category/marketplacespage_ping
+271,integrations/lightspeed-retailpage_ping
+272,integrations/newgisticspage_ping
+273,integrations/spscommerce-edi-inventory-managementpage_ping
+274,inventory-management-softwarepage_ping
+275,loginpage_ping
+276,lp/drop-shipping-management-softwarepage_ping
+277,lp/inventory-accounting-softwarepage_ping
+278,press/stitch-labs-announces-partnership-to-streamline-inventory-and-operations-for-high-growth-retailerpage_ping
+279,pricing-7.1page_ping
+280,pricing/page_ping
+281,request-demopage_ping
+282,resource/reports/preparing-2016-retail-holiday-data-reportpage_ping
+283,resource/reports/when-to-outsource-retail-operations-to-a-3pl-providerpage_ping
+284,resource/webinarspage_ping
+285,scout-inventory-managementpage_ping
+286,signuppage_ping
+287,slbmj2010page_ping
+288,ultimate-guide-to-scaling-your-retail-business/managing-your-business-financespage_ping
+289,why-stitchpage_ping
+290,distinct_cookies
+291,distinct_sessions
+292,A1
+293,A2
+294,AE
+295,AF
+296,AG
+297,AL
+298,AM
+299,AP
+300,AR
+301,AT
+302,AU
+303,AZ
+304,BA
+305,BB
+306,BD
+307,BE
+308,BG
+309,BH
+310,BN
+311,BR
+312,BS
+313,BW
+314,BY
+315,BZ
+316,CA
+317,CH
+318,CI
+319,CL
+320,CM
+321,CN
+322,CO
+323,CR
+324,CY
+325,CZ
+326,DE
+327,DK
+328,DO
+329,DZ
+330,EC
+331,EE
+332,EG
+333,ES
+334,ET
+335,EU
+336,FI
+337,FJ
+338,FR
+339,GB
+340,GD
+341,GE
+342,GG
+343,GH
+344,GI
+345,GM
+346,GR
+347,GT
+348,HK
+349,HN
+350,HR
+351,HT
+352,HU
+353,ID
+354,IE
+355,IL
+356,IN
+357,IQ
+358,IR
+359,IS
+360,IT
+361,JE
+362,JM
+363,JO
+364,JP
+365,KE
+366,KG
+367,KH
+368,KN
+369,KR
+370,KW
+371,KY
+372,KZ
+373,LA
+374,LB
+375,LK
+376,LT
+377,LU
+378,LV
+379,MA
+380,MC
+381,MD
+382,ME
+383,MG
+384,MK
+385,MM
+386,MN
+387,MO
+388,MR
+389,MT
+390,MU
+391,MV
+392,MX
+393,MY
+394,NC
+395,NG
+396,NI
+397,NL
+398,NO
+399,NP
+400,NZ
+401,OM
+402,PA
+403,PE
+404,PG
+405,PH
+406,PK
+407,PL
+408,PR
+409,PS
+410,PT
+411,QA
+412,RE
+413,RO
+414,RS
+415,RU
+416,RW
+417,SA
+418,SC
+419,SE
+420,SG
+421,SI
+422,SK
+423,SR
+424,SV
+425,SX
+426,TC
+427,TH
+428,TN
+429,TR
+430,TT
+431,TW
+432,TZ
+433,UA
+434,UG
+435,US
+436,UY
+437,UZ
+438,VE
+439,VN
+440,WS
+441,ZA
+442,ZM
+443,ZW
+444,mkt_medium__3Demail
+445,mkt_medium__3PL
+446,mkt_medium_CTA
+447,mkt_medium_HootSuite
+448,mkt_medium_IncontentLink
+449,mkt_medium_PR
+450,mkt_medium_RT
+451,mkt_medium_adroll
+452,mkt_medium_appstore
+453,mkt_medium_banner
+454,mkt_medium_blog
+455,mkt_medium_blogrepost
+456,mkt_medium_cpc
+457,mkt_medium_customer_story
+458,mkt_medium_dashboard
+459,mkt_medium_eblast
+460,mkt_medium_email
+461,mkt_medium_email_signature
+462,mkt_medium_facebook
+463,mkt_medium_feed
+464,mkt_medium_forum
+465,mkt_medium_gp
+466,mkt_medium_guest_blog
+467,mkt_medium_guestblog
+468,mkt_medium_guestpost
+469,mkt_medium_guide
+470,mkt_medium_helpcenter
+471,mkt_medium_newsletter
+472,mkt_medium_notification
+473,mkt_medium_partner
+474,mkt_medium_partner_link
+475,mkt_medium_pdf
+476,mkt_medium_ppc
+477,mkt_medium_press_release
+478,mkt_medium_press_release.1
+479,mkt_medium_press_release.2
+480,mkt_medium_press_release.3
+481,mkt_medium_profile
+482,mkt_medium_review
+483,mkt_medium_reviews
+484,mkt_medium_shopify
+485,mkt_medium_social
+486,mkt_medium_stitchapp
+487,mkt_medium_textlink
+488,mkt_medium_thankyou_page
+489,mkt_medium_videoLink
+490,mkt_medium_web
+491,mkt_source_Best_Inventory_Management_Tools
+492,mkt_source_Desk
+493,mkt_source_FBButton
+494,mkt_source_Gainsight
+495,mkt_source_Moblized_com
+496,mkt_source_PayPal_Partner_Directory
+497,mkt_source_PayPal_Partner_Directory.1
+498,mkt_source_PayPal_Partner_Directory.2
+499,mkt_source_PayPal_Partner_Directory.3
+500,mkt_source_SellerEngine
+501,mkt_source_Success
+502,mkt_source_Top_10_Order_Management_Systems
+503,mkt_source_Top_10_cloud_inventory_management_software
+504,mkt_source_Twitter
+505,mkt_source_adroll
+506,mkt_source_adroll_com
+507,mkt_source_amazon
+508,mkt_source_appeagle
+509,mkt_source_bigcommerce_com
+510,mkt_source_blog
+511,mkt_source_capterra_com
+512,mkt_source_cartdesigners
+513,mkt_source_company_x
+514,mkt_source_company_x_com
+515,mkt_source_company_x_com_utm_medium_blog_utm_campaign_tax_season
+516,mkt_source_content
+517,mkt_source_dbny_co
+518,mkt_source_designsponge
+519,mkt_source_ebay
+520,mkt_source_ecommby
+521,mkt_source_etsy_com
+522,mkt_source_exacttarget
+523,mkt_source_facebook
+524,mkt_source_facebook_com
+525,mkt_source_feedburner
+526,mkt_source_forum
+527,mkt_source_getapp
+528,mkt_source_getapp_com
+529,mkt_source_google
+530,mkt_source_google_com
+531,mkt_source_hs_automation
+532,mkt_source_hs_email
+533,mkt_source_imadeitmarket
+534,mkt_source_indinero_com
+535,mkt_source_interface_text
+536,mkt_source_intuit_com
+537,mkt_source_justuno_com
+538,mkt_source_kabbage
+539,mkt_source_lightspeed_com
+540,mkt_source_linkedin
+541,mkt_source_linkedin_com
+542,mkt_source_magento_com
+543,mkt_source_merchantmaverick_com
+544,mkt_source_mogulmom
+545,mkt_source_pec_newsletter
+546,mkt_source_pixafy_com
+547,mkt_source_practicalecommerce
+548,mkt_source_prnewswire
+549,mkt_source_reddit_com
+550,mkt_source_scoutsft_com
+551,mkt_source_sellercentral_amazon_com
+552,mkt_source_shipstation
+553,mkt_source_shipstation_com
+554,mkt_source_shipstation_com_utm_medium_blog
+555,mkt_source_shipwire_com
+556,mkt_source_shoeboxed
+557,mkt_source_shopify
+558,mkt_source_shopify_com
+559,mkt_source_social
+560,mkt_source_square
+561,mkt_source_squareup_com
+562,mkt_source_squareup_com_ca
+563,mkt_source_squareup_com_global
+564,mkt_source_stitchapp
+565,mkt_source_success
+566,mkt_source_twitter
+567,mkt_source_twitter_com
+568,mkt_source_vendhq_com
+569,mkt_source_vero
+570,mkt_source_weeklyemail
+571,mkt_source_wiser_com
+572,mkt_source_woocommerce
+573,mkt_source_woocommerce_com
+574,mkt_source_woothemes_com
+575,mkt_source_xero
+576,mkt_source_xero_com
+577,mkt_source_youtube_com
+578,mobile_pageviews
+579,non_mobile_pageviews
+580,share_of_pageviews
+581,Apple WebKit
+582,BlackBerry
+583,Chrome
+584,Chrome 11
+585,Chrome 21
+586,Chrome 23
+587,Chrome 26
+588,Chrome 27
+589,Chrome 28
+590,Chrome 29
+591,Chrome 30
+592,Chrome 31
+593,Chrome 32
+594,Chrome 33
+595,Chrome 34
+596,Chrome 35
+597,Chrome 36
+598,Chrome 37
+599,Chrome 38
+600,Chrome 39
+601,Chrome 40
+602,Chrome 41
+603,Chrome 42
+604,Chrome 43
+605,Chrome 44
+606,Chrome 45
+607,Chrome 46
+608,Chrome 47
+609,Chrome 48
+610,Chrome 49
+611,Chrome Mobile
+612,Firefox
+613,Firefox 10
+614,Firefox 11
+615,Firefox 15
+616,Firefox 16
+617,Firefox 24
+618,Firefox 28
+619,Firefox 29
+620,Firefox 3
+621,Firefox 30
+622,Firefox 31
+623,Firefox 33
+624,Firefox 34
+625,Firefox 35
+626,Firefox 36
+627,Firefox 37
+628,Firefox 38
+629,Firefox 39
+630,Firefox 4
+631,Firefox 40
+632,Firefox 41
+633,Firefox 42
+634,Firefox 43
+635,Firefox 44
+636,Firefox 45
+637,Firefox 5
+638,Firefox Mobile
+639,IE Mobile 11
+640,Internet Explorer 10
+641,Internet Explorer 11
+642,Internet Explorer 7
+643,Internet Explorer 8
+644,Internet Explorer 9
+645,Microsoft Edge
+646,Microsoft Edge 12
+647,Microsoft Edge 13
+648,Microsoft Edge Mobile 12
+649,Mobile Safari
+650,Mozilla
+651,Opera
+652,Opera Mini
+653,Opera Mobile
+654,Safari
+655,Safari 4
+656,Safari 5
+657,Safari 6
+658,Safari 7
+659,Safari 8
+660,Safari 9
+661,Unknown
+662,Unknown.1
+663,Vivaldi
+664,Android
+665,Android 2.x
+666,Android 3.x Tablet
+667,Android 4.x
+668,Android 4.x Tablet
+669,Android 5.x
+670,Android 5.x Tablet
+671,Android 6.x
+672,Android 6.x Tablet
+673,Android Mobile
+674,Chrome OS
+675,Linux
+676,Mac OS X
+677,Mac OS X (iPad)
+678,Mac OS X (iPhone)
+679,Ubuntu
+680,Unknown.2
+681,Unknown.3
+682,Unknown mobile
+683,Windows
+684,Windows 10
+685,Windows 10 Mobile
+686,Windows 2000
+687,Windows 7
+688,Windows 8
+689,Windows 8.1
+690,Windows Phone 8.1
+691,Windows Vista
+692,Windows XP
+693,iOS 4 (iPhone)
+694,iOS 6 (iPad)
+695,iOS 7 (iPad)
+696,iOS 7 (iPhone)
+697,iOS 8 (iPad)
+698,iOS 8.1 (iPad)
+699,iOS 8.1 (iPhone)
+700,iOS 8.2 (iPad)
+701,iOS 8.2 (iPhone)
+702,iOS 8.3 (iPad)
+703,iOS 8.3 (iPhone)
+704,iOS 8.4 (iPad)
+705,iOS 8.4 (iPhone)
+706,iOS 9 (iPad)
+707,iOS 9 (iPhone)
+708,cc

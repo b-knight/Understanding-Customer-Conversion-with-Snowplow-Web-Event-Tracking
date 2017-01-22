@@ -79,22 +79,21 @@ os\_timezone  & The client's operating system timezone       \\
 dvce\_ismobile  & Is the device mobile? (1 = 'yes')  \\
 \hline
 \end{tabular}
-\caption{Snowplow Variables within the Available Data}
+\caption{Snowplow Variables Pre-Transformation}
 \label{table:1}
 \end{table}
 \end{landscape}
 
+\indent The transformed data set is viewable in munged\_df.csv is approximately 38 MB. It contains 290 features that represent counts of various combinations of web events and URLs grouped by account\_id. Next there are two aggregated features - the total number of distinct cookies associated with the account and the sum total of all Internet sessions linked to that account. Next, there are 151 features that represent counts of page view events linked to IP addresses within a certain country (e.g. a count of page views from China, a count of page views from France, and so forth). Next, there are 46 features that represent counts of page views coming from a specific marketing medium (`mkt\_medium'). Recall that `mkt\_medium' is the type of traffic. Examples include `partner\_link,' `adroll,' or `appstore.'
                                                               
 \section{Solution Statement}
-\indent\indent I propose a two-part solution to this problem. The first question is how reliably can we predict conversion from visitor to paying customer. To this end, I will first experiment with SVMs using a RBF kernel. Other approaches may ulrimately prove to be more successful, but a RBF kernel is likley to serve us well as a starting point \footnote{https://arxiv.org/pdf/1606.00930v1.pdf} \\
-\indent The second question we must bear in mind is whether the results are actionable. Specifically, we want to know what features are most relevant for customer conversion. For instance, does visiting the pricing page increase or decrease the likelihood of the visitor becoming a paying customer? If so, how strong or weak is the correlation? To this end we can use logistic regression. Logistic regression has the advantage of being one of the most readily interpretable machine learning techniques. Specifically, we can transform the resulting coefficients into their log-likelihood equivalents and insight into the likely effect size and its statistical significance.   
+\indent\indent How reliably can we predict conversion from visitor to paying customer. To this end, I will first experiment with SVMs using a RBF kernel. Other approaches may ultimately prove to be more successful, but a RBF kernel is likely to serve us well as a starting point \footnote{https://arxiv.org/pdf/1606.00930v1.pdf} \\
 
 \section{Benchmark Model}
-\indent\indent For a \textit{very} rough baseline of our future model's performance, we can divide the number of distinct timestamps where a credit card was added (cc\_date\_added) by the number of distinct Snowplow cookies (domain\_userid). In this fashion, 4,298/1,014,324 = 0.004. On average, it takes 250 unique visitors to generate 1 paying customer. Put in different terms, we can predict with 0.996\% accuracy that all visitors will fail to convert to paying customers. However, this finding is not particularly helpful - thus the need for additional evaluation metrics.  
+\indent\indent For a \textit{very} rough baseline of our future model's performance, we can divide the number of accounts where credit card was added (cc\_date\_added) by the number of total accounts. Thus, for our highly imbalanced data the probability of a label denoting a successful customer conversion (cc = 1) is 0.06. The imbalanced nature of the data means that accuracy is not particularly helpful a metric. Instead, I use the Area Under the Curve (AUC) of a Precision-Recall plot. Applying the data post-transformation (see munged\_df.csv) directly to a SVM with RBF kernel and all default settings yielded an AUC of 0.22 - the benchmark model for this project. 
 
 \section{Evaluation Metrics}
-\indent\indent For assessing the efficacy of the machine learning model, I will employ a standard confusion matrix. While the confusion matrix will offer some important context, the ultimate evaluation metric will be the area under a precision-recall curve (AUC). Given that positive conversion events are extremely rare (0.4\%), a precision-recall curve is more appropriate in this context compared to the Receiver Operator Characteristic (ROC) curve.\footnote{http://ftp.cs.wisc.edu/machine-learning/shavlik-group/davis.icml06.pdf}\\
-\indent For the subsequent logistic model, it will be necessary to omit as many features from the model as possible (we are likely interested in the top 20 or so largest, statistically significant coefficients). Pruning features from the resulting model will likely be a process of trial and error. To this end, we can select the best performing model using the Bayesian Information Criterion (BIC).
+\indent\indent Given that positive conversion events are extremely rare (0.4\%), a precision-recall curve is more appropriate in this context compared to the Receiver Operator Characteristic (ROC) curve.\footnote{http://ftp.cs.wisc.edu/machine-learning/shavlik-group/davis.icml06.pdf}\\
 
 \end{document}
 

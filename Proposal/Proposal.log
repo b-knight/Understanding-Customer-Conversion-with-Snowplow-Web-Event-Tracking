@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.1.2)  21 JAN 2017 22:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.1.2)  22 JAN 2017 15:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -189,50 +189,108 @@ File: pdftex.def 2016/07/10 v0.06j Graphics/color for pdfTeX
 )))
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2016/06/28 v2.15d AMS math features
+\@mathmargin=\skip44
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks15
+\ex@=\dimen107
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen108
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count116
+LaTeX Info: Redefining \frac on input line 199.
+\uproot@=\count117
+\leftroot@=\count118
+LaTeX Info: Redefining \overline on input line 297.
+\classnum@=\count119
+\DOTSCASE@=\count120
+LaTeX Info: Redefining \ldots on input line 394.
+LaTeX Info: Redefining \dots on input line 397.
+LaTeX Info: Redefining \cdots on input line 518.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen109
+LaTeX Font Info:    Redeclaring font encoding OML on input line 634.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 635.
+\macc@depth=\count121
+\c@MaxMatrixCols=\count122
+\dotsspace@=\muskip11
+\c@parentequation=\count123
+\dspbrk@lvl=\count124
+\tag@help=\toks16
+\row@=\count125
+\column@=\count126
+\maxfields@=\count127
+\andhelp@=\toks17
+\eqnshift@=\dimen110
+\alignsep@=\dimen111
+\tagshift@=\dimen112
+\tagwidth@=\dimen113
+\totwidth@=\dimen114
+\lineht@=\dimen115
+\@envbody=\toks18
+\multlinegap=\skip45
+\multlinetaggap=\skip46
+\mathdisplay@stack=\toks19
+LaTeX Info: Redefining \[ on input line 2739.
+LaTeX Info: Redefining \] on input line 2740.
+)
 (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
-\Gm@cnth=\count116
-\Gm@cntv=\count117
-\c@Gm@tempcnt=\count118
-\Gm@bindingoffset=\dimen107
-\Gm@wd@mp=\dimen108
-\Gm@odd@mp=\dimen109
-\Gm@even@mp=\dimen110
-\Gm@layoutwidth=\dimen111
-\Gm@layoutheight=\dimen112
-\Gm@layouthoffset=\dimen113
-\Gm@layoutvoffset=\dimen114
-\Gm@dimlist=\toks15
+\Gm@cnth=\count128
+\Gm@cntv=\count129
+\c@Gm@tempcnt=\count130
+\Gm@bindingoffset=\dimen116
+\Gm@wd@mp=\dimen117
+\Gm@odd@mp=\dimen118
+\Gm@even@mp=\dimen119
+\Gm@layoutwidth=\dimen120
+\Gm@layoutheight=\dimen121
+\Gm@layouthoffset=\dimen122
+\Gm@layoutvoffset=\dimen123
+\Gm@dimlist=\toks20
 ) (./Proposal.aux)
 \openout1 = `Proposal.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-\AtBeginShipoutBox=\box26
-Package hyperref Info: Link coloring OFF on input line 12.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+\AtBeginShipoutBox=\box28
+Package hyperref Info: Link coloring OFF on input line 13.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count119
+\c@section@level=\count131
 )
-LaTeX Info: Redefining \ref on input line 12.
-LaTeX Info: Redefining \pageref on input line 12.
-LaTeX Info: Redefining \nameref on input line 12.
+LaTeX Info: Redefining \ref on input line 13.
+LaTeX Info: Redefining \pageref on input line 13.
+LaTeX Info: Redefining \nameref on input line 13.
 
 (./Proposal.out) (./Proposal.out)
 \@outlinefile=\write3
@@ -241,17 +299,17 @@ LaTeX Info: Redefining \nameref on input line 12.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count120
-\scratchdimen=\dimen115
-\scratchbox=\box27
-\nofMPsegments=\count121
-\nofMParguments=\count122
-\everyMPshowfont=\toks16
-\MPscratchCnt=\count123
-\MPscratchDim=\dimen116
-\MPnumerator=\count124
-\makeMPintoPDFobject=\count125
-\everyMPtoPDFconversion=\toks17
+\scratchcounter=\count132
+\scratchdimen=\dimen124
+\scratchbox=\box29
+\nofMPsegments=\count133
+\nofMParguments=\count134
+\everyMPshowfont=\toks21
+\MPscratchCnt=\count135
+\MPscratchDim=\dimen125
+\MPnumerator=\count136
+\makeMPintoPDFobject=\count137
+\everyMPtoPDFconversion=\toks22
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -303,63 +361,60 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 14.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 14.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 14.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 17.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 17.
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--29
+
+ []
+
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 90--91
+Underfull \hbox (badness 10000) in paragraph at lines 98--99
 
  []
 
+[3
 
-Underfull \hbox (badness 10000) in paragraph at lines 96--97
+]
+Underfull \hbox (badness 10000) in paragraph at lines 112--119
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 98.
-[4
-
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 98.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 124.
+[4]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 124.
  (./Proposal.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 98.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 98.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 124.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 124.
 Package rerunfilecheck Info: File `Proposal.out' has not changed.
-(rerunfilecheck)             Checksum: D03643DF682C8B4C17306A22932E0850;307.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 98.
+(rerunfilecheck)             Checksum: 0191649614BE8EA69D5FDF793C00E37D;406.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 124.
  ) 
 Here is how much of TeX's memory you used:
- 5670 strings out of 494945
- 84282 string characters out of 6181033
- 175768 words of memory out of 5000000
- 8925 multiletter control sequences out of 15000+600000
- 7794 words of font info for 28 fonts, out of 8000000 for 9000
+ 6261 strings out of 494945
+ 90965 string characters out of 6181033
+ 185192 words of memory out of 5000000
+ 9496 multiletter control sequences out of 15000+600000
+ 8922 words of font info for 33 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 33i,8n,32p,850b,350s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 33i,8n,32p,800b,355s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmtt8.pfb>
-Output written on Proposal.pdf (4 pages, 118224 bytes).
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8
+.pfb>
+Output written on Proposal.pdf (4 pages, 139534 bytes).
 PDF statistics:
- 102 PDF objects out of 1000 (max. 8388607)
- 86 compressed objects within 1 object stream
- 16 named destinations out of 1000 (max. 500000)
- 49 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 118 PDF objects out of 1000 (max. 8388607)
+ 100 compressed objects within 1 object stream
+ 18 named destinations out of 1000 (max. 500000)
+ 65 words of extra memory for PDF output out of 10000 (max. 10000000)
 

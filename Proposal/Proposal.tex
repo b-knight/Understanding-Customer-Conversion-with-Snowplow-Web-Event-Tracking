@@ -2,6 +2,7 @@
 \usepackage{blindtext} % for dummy text
 \usepackage{hyperref}
 \usepackage{pdflscape}
+\usepackage{amsmath}
 \usepackage[margin=1in]{geometry}
 % \usepackage[margin=2cm]{geometry}   % to change margins
 % \usepackage{titling}             % Uncomment both to   
@@ -11,6 +12,7 @@
 Leveraging Snowplow Event Tracking for \\ Better Understanding Visitor Conversion}
 \begin{document}
 \maketitle
+\vspace{-1cm}
 \section{Background}
 \indent\indent The central goal of this research is marketing analytics.
 \href{http://snowplowanalytics.com/}{Snowplow} is a web event tracker capable of handling tens of millions of events per day. Using this data, we hope to answer the question of how different visitor experiences at a company's marketing site relate to the probability of those visitors ultimately becoming paying customers. \\
@@ -19,14 +21,13 @@ Leveraging Snowplow Event Tracking for \\ Better Understanding Visitor Conversio
 \indent This sort of information can be useful in determining what portions of the marketing site should receive priority with respect to A/B testing, new content, and so forth. At the same time, having awareness of visitors with a higher than normal likelihood of becoming customers would help the Sales Department better utilize scarce resources.
 
 \section{Problem Statement}
-\indent\indent To what extent can we infer a visitor's likelihood of becoming a paying customer based upon that visitor's experience on the company marketing site? Assuming that the predicted visitor behavior is superior to blind guessing, what specific factors (both within and outside of the company's control) contribute to a visitor's likelihood of becoming a paying customer?\\
-\indent In more concrete terms, we are essentially confronted with a binary classification problem - will the account in question add a credit card (cc\_date\_added IS NOT NULL `yes'/`no')? This labeling information is contained in the `cc' column within the file `munged\_df.csv.' 
+\indent\indent To what extent can we infer a visitor's likelihood of becoming a paying customer based upon that visitor's experience on the company marketing site? We are essentially confronted with a binary classification problem. Will the account in question add a credit card (cc\_date\_added IS NOT NULL `yes'/`no')? This labeling information is contained in the `cc' column within the file `munged\_df.csv.' 
 
 \section{Datasets and Inputs}
-\indent\indent The raw Snowplow data available to us is ~15 gigabytes spanning ~300 variables and tens of millions of events from November 2015 to January 2017. When we omit fields that are not in active use, are redundant, contain personal identifiable information (P.I.I.), or which cannot have any conceivable baring on customer conversion, then we are left with 14.6 million events and the variables shown in Table 1.\\
+\indent\indent The raw Snowplow data available to us is approximately 15 gigabytes spanning over 300 variables and tens of millions of events from November 2015 to January 2017. When we omit fields that are not in active use, are redundant, contain personal identifiable information (P.I.I.), or which cannot have any conceivable baring on customer conversion, then we are left with 14.6 million events and the variables shown in Table 1.\\
 \indent I use the phrase `variable' as opposed to feature, since this dataset will need to undergo substantial transformation before we can employ any supervised learning technique. Each row has an `event\_id' along with an `event\_name' and a `page\_url.' The event\_id is the row's unique identifier, the event\_name is the type of event, and the page\_url is the URL within the marketing site where the event took place. \\
-\indent In transforming the data, we will need to create features by creating combinations of event types and distinct URLs, and counting the number of occurrences while grouping on accounts. For instance, if `.../payment\_plan.com' is a frequent page url, then the number of page views on payment\_plan.com would be one feature, the number of page pings would be another, as would the number of web forms submitted, and so forth. Given that there are six distinct event types and dozens of URLs within the marketing site, then the feature space will likely be in the hundreds of features. This feature space will only widen as we add additional variables to the mix including geo\_region, number of visitors per account, and so forth.\\
-\indent At the same time, we will need to filter the data. Since we are interested in the causal relationship between visitors' marketing site experiences and whether they ultimately became paying customers, we can and should omit all events that occur after the time-stamp `cc\_date\_added' - the date when a customer first added a credit card to their account.
+
+
 \begin{landscape}
 \begin{table}[h!]
 \centering
@@ -84,16 +85,41 @@ dvce\_ismobile  & Is the device mobile? (1 = 'yes')  \\
 \end{table}
 \end{landscape}
 
-\indent The transformed data set is viewable in munged\_df.csv is approximately 38 MB. It contains 290 features that represent counts of various combinations of web events and URLs grouped by account\_id. Next there are two aggregated features - the total number of distinct cookies associated with the account and the sum total of all Internet sessions linked to that account. Next, there are 151 features that represent counts of page view events linked to IP addresses within a certain country (e.g. a count of page views from China, a count of page views from France, and so forth). Next, there are 46 features that represent counts of page views coming from a specific marketing medium (`mkt\_medium'). Recall that `mkt\_medium' is the type of traffic. Examples include `partner\_link,' `adroll,' or `appstore.'
-                                                              
+\indent In transforming the data, we will need to create features by creating combinations of event types and distinct URLs, and counting the number of occurrences while grouping on accounts. For instance, if `.../payment\_plan.com' is a frequent page url, then the number of page views on payment\_plan.com would be one feature, the number of page pings would be another, as would the number of web forms submitted, and so forth. Given that there are six distinct event types and dozens of URLs within the marketing site, then the feature space will likely be in the hundreds of features. This feature space will only widen as we add additional variables to the mix including geo\_region, number of visitors per account, and so forth.\\
+\indent At the same time, we will need to filter the data. Since we are interested in the causal relationship between visitors' marketing site experiences and whether they ultimately became paying customers, we can and should omit all events that occur after the time-stamp `cc\_date\_added' - the date when a customer first added a credit card to their account.\\
+\indent The transformed data set is viewable in the file `munged\_df.csv' and is approximately 38 MB. It contains 16,607 observations and a total of 708 features - 290 of which represent counts of various combinations of web events and URLs grouped by account\_id. Next there are two aggregated features - the total number of distinct cookies associated with the account and the sum total of all Internet sessions linked to that account.\\
+\indent Within the feature space there are 151 features that represent counts of page view events linked to IP addresses within a certain country (e.g. a count of page views from China, a count of page views from France, and so forth). \\
+\indent Next, there are 46 features that represent counts of page views coming from a specific marketing medium (`mkt\_medium'). Recall that `mkt\_medium' is the type of traffic. Examples include `partner\_link,' `adroll,' or `appstore.' The `mkt\_medium' subset of features is followed by 86 features that correspond to Snowplow's `mkt\_source' field. `mkt\_source' designates the company / website where the traffic came from. Examples from this subset of the feature space include counts of page views from Google.com (`mkt\_source\_google\_com') and Squarespace (`mkt\_source\_square').\\
+\indent There are two additional feature: `mobile\_pageviews' and `non\_mobile\_pageviews' that represent counts of page views that took place on mobile versus non mobile devices. I have also included an additional feature derived from these two - the share of page views that took place on a mobile device. \\
+\indent The final two types of features include counts of page views on a given browser (80 features) and counts of page views on a given operating system (46). The labels are in the last column and take a value of `1' (added a credit card) or `0' (did not add a credit card). \\
+\indent Regarding the allocation of data for testing and training purpose, we are not particularly constrained regarding the extent of the available data. I will use an .8 /.2 split of the data for training and testing purposes respectively. 
+                         
 \section{Solution Statement}
-\indent\indent How reliably can we predict conversion from visitor to paying customer. To this end, I will first experiment with SVMs using a RBF kernel. Other approaches may ultimately prove to be more successful, but a RBF kernel is likely to serve us well as a starting point \footnote{https://arxiv.org/pdf/1606.00930v1.pdf} \\
+\indent\indent How reliably can we predict conversion from visitor to paying customer? In other words, how precisely can we predict whether the `cc' label is a 0 or 1? For a binary classification problem of this sort,  Support Vector Machines (SVMs) with a RBF kernel is likely to serve well as a starting point \footnote{https://arxiv.org/pdf/1606.00930v1.pdf}. We have a large set of features (708) with plenty of observations (16,607) and so a linear SVM with no kernel may also be worth exploring. \\
 
 \section{Benchmark Model}
-\indent\indent For a \textit{very} rough baseline of our future model's performance, we can divide the number of accounts where credit card was added (cc\_date\_added) by the number of total accounts. Thus, for our highly imbalanced data the probability of a label denoting a successful customer conversion (cc = 1) is 0.06. The imbalanced nature of the data means that accuracy is not particularly helpful a metric. Instead, I use the Area Under the Curve (AUC) of a Precision-Recall plot. Applying the data post-transformation (see munged\_df.csv) directly to a SVM with RBF kernel and all default settings yielded an AUC of 0.22 - the benchmark model for this project. 
+\indent\indent For a \textit{very} rough baseline of our future model's performance, we can divide the number of accounts where credit card was added (cc\_date\_added) by the number of total accounts. Thus, for our highly imbalanced data the probability of a label denoting a successful customer conversion (cc = 1) is 0.06. The imbalanced nature of the data means that accuracy is not a particularly helpful metric. Instead, I use the Area Under the Curve (AUC) of a Precision-Recall plot. Applying the data post-transformation (see munged\_df.csv) directly to a SVM with RBF kernel and all default settings yielded an AUC of 0.22 - the benchmark model for this project. The goal of this project is to see if, via hyper-parameter tuning, we can exceed an AUC of .3.
 
 \section{Evaluation Metrics}
-\indent\indent Given that positive conversion events are extremely rare (0.4\%), a precision-recall curve is more appropriate in this context compared to the Receiver Operator Characteristic (ROC) curve.\footnote{http://ftp.cs.wisc.edu/machine-learning/shavlik-group/davis.icml06.pdf}\\
+\indent\indent Given that positive conversion events are extremely rare (6\%), a precision-recall curve is more appropriate in this context compared to the Receiver Operator Characteristic (ROC) curve.\footnote{http://ftp.cs.wisc.edu/machine-learning/shavlik-group/davis.icml06.pdf} Recall that a conversion to a paying account is represented by a non-NULL cc\_date\_added - a date field that is transformed into the boolean ``CC.' The formulas for precision and recall are shown below.
+
+\[precison =  \displaystyle\frac{|\text{Paying Accounts Identified}\cap\text{Accounts Identified}|}{\text{Accounts Identified}}\]
+
+\[recall =  \displaystyle\frac{|\text{Paying Accounts Identified}\cap\text{Accounts Identified}|}{\text{Paying Accounts Identified}}\]
+
+
+\section{Work Flow}
+\indent\indent The first stage of the project will involve transforming the data set from millions of events into a data set of accounts with counts of events as features (see Datasets and Inputs). This is handled in `Notebook 1 - Data Munging.' While the original raw data set is too vast to include, users can run Notebook 1 using the file `raw\_dataset\_sample.csv' to see how the data transformation is handled.\\
+\indent The next stage is exploring the newly derived feature space. This is the purpose of `Notebook 2 - Exploratory Analysis.' The notebook creates images with the purpose of visualizing the summary statistics of the feature set, and stores them in the `Images' directory. \\
+\indent The next stage is creating a baseline model. This involves the
+implementation of a SVM with its default settings. `Notebook 3 - Default SVM-RBF Model' establishes this baseline and plots the resulting precision-recall curve.\\
+\indent The next step involves tuning the hyper-parameters. To improve the likelihood of finding the most appropriate model model, I use two different approaches with their corresponding iPython notebooks - SVM with a RBF kernel (`Notebook 4 - RBF Kernel Hyper-Parameter Tuning') and linear SVM 
+(`Notebook 5 - Linear SVC  Hyper-Parameter Tuning').\\
+\indent The final stage will involve selecting the best model from either the SVM-RBF or linear SVM, implementing it, and writing up the subsequent results.\\
+
+\section{Alternate Approaches}
+\indent\indent This proposal has not emphasized dimensionality reduction, as exploratory analysis showed that use of Principal Component Analysis (PCA) typically corresponded to a several point reduction in the AUC. Depending on how the testing of SVM-RBF and linear SVM proceed, I may have recourse to experiment with linear discriminant analysis (LDA) since it incorporates information from the labels - a definite strength given the unbalanced nature of the data set. 
+
 
 \end{document}
 

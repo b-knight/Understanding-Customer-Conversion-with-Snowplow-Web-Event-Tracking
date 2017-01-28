@@ -1,5 +1,40 @@
 # Understanding Customer Conversion with Snowplow Web Event Tracking
-I apply machine learning (ML) techniques to Snowplow web event data to understand how variation in marketing site experiences might correlate to customer conversion.
+Here I apply machine learning techniques to Snowplow web event data to understand how variation in marketing site experiences might correlate to customer conversion. Snowplow is a web event tracker capable of handling tens of millions of events per day. Using this data, I hope to answer the question of how different visitor experiences at a company’s marketing site relate to the probability of those visitors ultimately becoming paying customers.
+
+### Snowplow Web Event Data
+The raw Snowplow data available to us is approximately 15 gigabytes spanning over 300 variables and tens of millions of events from November 2015 to January 2017. When we omit fields that are not in active use, are redundant, contain personal identifiable information (P.I.I.), or which cannot have any conceivable baring on customer conversion, then we are left with 14.6 million events spread across 
+
+I use the phrase ‘variable’ as opposed to feature, since this dataset will need to undergo substantial
+transformation before we can employ any supervised learning technique. Each row has an ‘event id’ along
+with an ‘event name’ and a ‘page url.’ The event id is the row’s unique identifier, the event name is the type
+of event, and the page url is the URL within the marketing site where the event took place.
+
+|<sub>Snowplow Variable Name |<sub>Snowplow Variable Description                                                         |
+| -------------------------- |:-----------------------------------------------------------------------------------------:| 
+| <sub>*event_id*            | <sub>The unique Snowplow event identifier                                                 |
+| <sub>*account_id*          | <sub>The account number if an account is associated with the domain userid                |
+| <sub>*reg_date*            | <sub>The date an account was registered                                                   |
+| <sub>*cc_date_added*       | <sub>The date a credit card was added                                                     |
+| <sub>*collector_tstamp*    | <sub>The timestamp (in UTC) when the Snowplow collector first recorded the event          |
+| <sub>*domain_userid* | <sub>This corresponds to a Snowplow cookie and will tend to correspond to a single internet device|
+| <sub>*domain_sessionidx*   | <sub>The number of sessions to date that the domain userid has been tracked               |
+| <sub>*domain_sessionid*    | <sub>The unique identifier for the Snowplow cookie/session                                |
+| <sub>*event_name*          | <sub>The type of event recorded                                                           |
+| <sub>*geo_country*         | <sub>The ISO 3166-1 code for the country that the visitor’s IP address is located         |
+| <sub>*geo_region_name*     | <sub>The ISO-3166-2 code for country region that the visitor’s IP address is in           |
+| <sub>*geo_city*            | <sub>The city the visitor’s IP address is in                                              |
+| <sub>*page_url*            | <sub>The page URL                                                                         |
+| <sub>*page_referrer*       | <sub>The URL of the referrer (previous page)                                              |
+| <sub>*mkt_medium*          | <sub>The type of traffic source (e.g. ’cpc’, ’affiliate’, ’organic’, ’social’)            |
+| <sub>*mkt_source*          | <sub>The company / website where the traffic came from (e.g. ’Google’, ’Facebook’)        |
+| <sub>*se_category*         | <sub>The event type                                                                       |
+| <sub>*se_action*           | <sub>The action performed / event name (e.g. ’add-to-basket’, ’play-video’)               |
+| <sub>*br_name*             | <sub>The name of the visitor’s browser                                                    |
+| <sub>*os_name*             | <sub>The name of the vistor’s operating system                                            |
+| <sub>*os_timezone*         | <sub>The client’s operating system timezone                                               |
+| <sub>*dvce_ismobile*       | <sub>Is the device mobile? (1 = ’yes’)                                                    |
+
+
 
 ### Data Transformation 
 The distillation of the raw data into a transformed feature set with labels is handled by the iPython notebook 'Notebook 1 - Data Munging.' In transforming the data, we will need to create features by creating combinations of event types and distinct URLs, and counting the number of occurrences while grouping on accounts. For instance, if ‘.../pay-ment plan.com’ is a frequent page url, then the number of page views on payment plan.com would be one feature, the number of page pings would be another, as would the number of web forms submitted, and so forth. Given that there are six distinct event types and dozens of URLs within the marketing site, then the feature space quickly expands to encompass hundreds of features. This feature space will only widen as we add additional variables to the mix including geo region, number of visitors per account, and so forth.

@@ -3,12 +3,7 @@
 Here I apply machine learning techniques to Snowplow web event data to understand how variation in marketing site experiences might correlate to customer conversion. Snowplow is a web event tracker capable of handling tens of millions of events per day. Using this data, I hope to answer the question of how different visitor experiences at a company’s marketing site relate to the probability of those visitors ultimately becoming paying customers.
 
 ### Snowplow Web Event Data
-The raw Snowplow data available to us is approximately 15 gigabytes spanning over 300 variables and tens of millions of events from November 2015 to January 2017. When we omit fields that are not in active use, are redundant, contain personal identifiable information (P.I.I.), or which cannot have any conceivable baring on customer conversion, then we are left with 14.6 million events spread across 
-
-I use the phrase ‘variable’ as opposed to feature, since this dataset will need to undergo substantial
-transformation before we can employ any supervised learning technique. Each row has an ‘event id’ along
-with an ‘event name’ and a ‘page url.’ The event id is the row’s unique identifier, the event name is the type
-of event, and the page url is the URL within the marketing site where the event took place.
+The raw Snowplow data available is approximately 15 gigabytes spanning over 300 variables and tens of millions of events from November 2015 to January 2017. When we omit fields that are not in active use, are redundant, contain personal identifiable information (P.I.I.), or which cannot have any conceivable baring on customer conversion, then we are left with 14.6 million events spread across 22 variables.
 
 |<sub>Snowplow Variable Name         |<sub>Snowplow Variable Description                                                  |
 | ---------------------------------- |-----------------------------------------------------------------------------------------| 
@@ -35,9 +30,9 @@ of event, and the page url is the URL within the marketing site where the event 
 | <sub>*os_timezone*         | <sub>The client’s operating system timezone                                               |
 | <sub>*dvce_ismobile*       | <sub>Is the device mobile? (1 = ’yes’)                                                    |
 
-
-
 ### Data Transformation 
+I use the phrase 'variable' as opposed to 'feature', since this dataset will need to undergo substantial transformation before we can employ any supervised learning technique. Each row has an 'event_id' along with an 'event_name' and a ‘page url.’ The event id is the row’s unique identifier, the event name is the type of event, and the page url is the URL within the marketing site where the event took place.
+
 The distillation of the raw data into a transformed feature set with labels is handled by the iPython notebook 'Notebook 1 - Data Munging.' In transforming the data, we will need to create features by creating combinations of event types and distinct URLs, and counting the number of occurrences while grouping on accounts. For instance, if ‘.../pay-ment plan.com’ is a frequent page url, then the number of page views on payment plan.com would be one feature, the number of page pings would be another, as would the number of web forms submitted, and so forth. Given that there are six distinct event types and dozens of URLs within the marketing site, then the feature space quickly expands to encompass hundreds of features. This feature space will only widen as we add additional variables to the mix including geo region, number of visitors per account, and so forth.
 
 <div align="center">

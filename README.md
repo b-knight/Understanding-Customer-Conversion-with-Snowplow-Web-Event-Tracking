@@ -75,9 +75,23 @@ The C and gamma hyper-parameters can vary by several orders of magnitude, so fin
 </div>
 
 ### Results 
-At first glance, it would appear that the Bayesian optimization. 
+At first glance, it would appear that the Bayesian optimization worsened the predictive power of the RBF and linear SVM models. Whereas the default RBF model yielded an AUC of 0.26, 
 <div align="center">
 <p align="center"><b>Results: SVM with RBF Kernel and Linear SVM (Default Hyper-Parameter Settings)</b></p>
 <img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/optimized_SVM_with_RBF.png" width="430" height="430" />
 <img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/optimized_Linear_SVM.png" width="430" height="430" />
 </div>
+
+<div align="center">
+<p align="center"><b>Results: Comparision of Precison at 0.8 Recall Threshold </b></p>
+<img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/Results_Table.png" width="500" height="200" />
+</div>
+
+
+### Possible Next Steps
+* Estimating variance
+* Possible redefinition of success metric to weigh recall more highly than precision 
+* Dimensionality reduction via [LDA](https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation)
+* Use of [Random Forests](https://en.wikipedia.org/wiki/Random_forest) 
+* Use of [OneClassSVM](http://scikit-learn.org/stable/modules/generated/sklearn.svm.OneClassSVM.html#sklearn.svm.OneClassSVM)
+* Accounting for sparse feature space

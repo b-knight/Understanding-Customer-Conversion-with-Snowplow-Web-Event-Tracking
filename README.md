@@ -75,8 +75,9 @@ The C and gamma hyper-parameters can vary by several orders of magnitude, so fin
 </div>
 
 ### Results 
+At first glance, it would appear that the Bayesian optimization. 
 <div align="center">
 <p align="center"><b>Results: SVM with RBF Kernel and Linear SVM (Default Hyper-Parameter Settings)</b></p>
-<img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/optimized_Linear_SVM.png" width="430" height="430" />
+<img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/optimized_SVM_with_RBF.png" width="430" height="430" />
 <img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/optimized_Linear_SVM.png" width="430" height="430" />
 </div>

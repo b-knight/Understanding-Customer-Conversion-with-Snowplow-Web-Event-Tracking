@@ -9,11 +9,13 @@ feature, the number of page pings would be another, as would the number of web f
 forth. Given that there are six distinct event types and dozens of URLs within the marketing site, then
 the feature space quickly expands to encompass hundreds of features. This feature space will only widen as we add
 additional variables to the mix including geo region, number of visitors per account, and so forth.
-<div align="center">
-<img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/Data_Transformation.png" width="500" height="400" />
 
-
+<div>
+<img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/Data_Transformation.png" align="middle" width="500" height="400" />
 </div>
+<br>
+With the raw data transformed, our observations are no longer individual events but indivual accounts spanning the period November 2015 to January 2017. Our data set has 16,607 accounts and 581 features. The probability of an account sucessfully converting to a paying customer is approximately 6%.
+
 ### Exploratory Analysis
 The exploratory analysis of the initial feature set is handled in the iPython notebook 'Notebook 2 - Exploratory Analysis.'
 <div align="center">

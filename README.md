@@ -1,4 +1,5 @@
-# Understanding Customer Conversion with Snowplow Web Event Tracking
+# Understanding Customer Conversion with Snowplow Web Event Tracking <br> <sub> Benjamin S. Knight, January 27th 2017 </sub>
+
 Here I apply machine learning techniques to Snowplow web event data to understand how variation in marketing site experiences might correlate to customer conversion. Snowplow is a web event tracker capable of handling tens of millions of events per day. Using this data, I hope to answer the question of how different visitor experiences at a company’s marketing site relate to the probability of those visitors ultimately becoming paying customers.
 
 ### Snowplow Web Event Data
@@ -9,8 +10,8 @@ transformation before we can employ any supervised learning technique. Each row 
 with an ‘event name’ and a ‘page url.’ The event id is the row’s unique identifier, the event name is the type
 of event, and the page url is the URL within the marketing site where the event took place.
 
-|<sub>Snowplow Variable Name |<sub>Snowplow Variable Description                                                         |
-| -------------------------- |:-----------------------------------------------------------------------------------------:| 
+|<sub>Snowplow Variable Name         |<sub>Snowplow Variable Description                                                  |
+| ---------------------------------- |-----------------------------------------------------------------------------------------| 
 | <sub>*event_id*            | <sub>The unique Snowplow event identifier                                                 |
 | <sub>*account_id*          | <sub>The account number if an account is associated with the domain userid                |
 | <sub>*reg_date*            | <sub>The date an account was registered                                                   |

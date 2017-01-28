@@ -42,7 +42,8 @@ The distillation of the raw data into a transformed feature set with labels is h
 With the raw data transformed, our observations are no longer individual events but indivual accounts spanning the period November 2015 to January 2017. Our data set has 16,607 accounts and 581 features. The probability of an account sucessfully converting to a paying customer is approximately 6%.
 
 ### Exploratory Analysis
-The exploratory analysis of the initial feature set is handled in the iPython notebook 'Notebook 2 - Exploratory Analysis.'
+The exploratory analysis of the initial feature set is handled in the iPython notebook 'Notebook 2 - Exploratory Analysis.' Again, or data is highly unbalanced. Only 6% of the binary labels contained in the column 'cc' are of the class "paying customer." Another feature of the data is how sparse it is, as the following histograms of feature means and standard deviations make clear.
+
 <div align="center">
 <img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/exploratory_analysis-labels.png" align="middle" width="500" height="400" />
 </div>
@@ -54,7 +55,9 @@ The exploratory analysis of the initial feature set is handled in the iPython no
 </div>
 
 ### Establishing a Baseline 
-<p> How do we know if our ultimate model is any good? To establish a baseline, I implement a Support Vector Machine (SVM) model and a linear SVM model, both with their default settings.</p>
+<p> How do we know if our ultimate model is any good? To establish a baseline, I implement a Support Vector Machine (SVM) model and a linear SVM model, both with their default settings. These initial models were created using a 90% / 10% split of training data (14,946 accounts) versus testing datas (1,661 accounts).
+
+</p>
 <div align="center">
 <p align="center"><b>Results: SVM with RBF Kernel and Linear SVM (Default Hyper-Parameter Settings)</b></p>
 <img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/non-optimized_rbf_kernel.png" width="420" height="320" />
@@ -69,4 +72,11 @@ The C and gamma hyper-parameters can vary by several orders of magnitude, so fin
 <div align="center">
 <p align="center"><b>An Acquisition Function Combing a Unidimensional Space for Three Iterations</b></p>
 <img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/bayesian_optimization.png" align="middle" width="585" height="720" />
+</div>
+
+### Results 
+<div align="center">
+<p align="center"><b>Results: SVM with RBF Kernel and Linear SVM (Default Hyper-Parameter Settings)</b></p>
+<img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/optimized_Linear_SVM.png" width="430" height="430" />
+<img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/optimized_Linear_SVM.png" width="430" height="430" />
 </div>

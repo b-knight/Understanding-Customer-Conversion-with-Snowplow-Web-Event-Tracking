@@ -90,8 +90,8 @@ The C and gamma hyper-parameters can vary by several orders of magnitude, so fin
 At first glance, it would appear that the Bayesian optimization worsened the predictive power of the RBF and linear SVM models. Whereas the default RBF model yielded an AUC of 0.26, 
 <div align="center">
 <p align="center"><b>Results: SVM with RBF Kernel and Linear SVM (Default Hyper-Parameter Settings)</b></p>
-<img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/SVM_with_RBF.png" width="430" height="430" />
-<img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/Linear_SVM.png" width="430" height="430" />
+<img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/SVM_with_RBF.png" width="432" height="360" />
+<img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/Linear_SVM.png" width="432" height="360" />
 </div>
 
 <div align="center">
@@ -102,7 +102,7 @@ At first glance, it would appear that the Bayesian optimization worsened the pre
 | :-------------------------------------- | :-------------------: | :--------------------------:| 
 | K-Nearest Neighbors (Baseline)          |         0.047         |                             |
 | Support Vector Machines with RBF Kernel |         0.0           |            0.035            |
-| Linear Support Vector Machines          |         0.141         |            0.162            |
+| Linear Support Vector Machines          |         0.203         |            0.230            |
    
 
 ### Possible Next Steps

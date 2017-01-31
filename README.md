@@ -102,14 +102,14 @@ At first glance, it would appear that the Bayesian optimization worsened the pre
 </div>
 
 <div align="center">
-<p align="center"><b>Results: Comparision of F2 Scores </b></p>
+<p align="center"><b>Results: Comparision of F2 Scores Averaged from 20-Fold Cross Validation</b></p>
 </div>
 
 |              Model Used                 | With Default Settings | With Hyper-Parameter Tuning |
 | :-------------------------------------- | :-------------------: | :--------------------------:| 
-| K-Nearest Neighbors (Baseline)          |         0.25          |               -             |
-| Support Vector Machines with RBF Kernel |         0.0           |                             |
-| Linear Support Vector Machines          |                       |                             |
+| K-Nearest Neighbors (Baseline)          |         0.047         |                             |
+| Support Vector Machines with RBF Kernel |         0.0           |            0.035            |
+| Linear Support Vector Machines          |         0.141         |            0.162            |
    
 
 ### Possible Next Steps

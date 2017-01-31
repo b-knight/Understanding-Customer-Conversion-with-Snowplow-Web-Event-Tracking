@@ -83,10 +83,15 @@ At first glance, it would appear that the Bayesian optimization worsened the pre
 </div>
 
 <div align="center">
-<p align="center"><b>Results: Comparision of Precison at 0.8 Recall Threshold </b></p>
-<img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/Results_Table.png" width="500" height="200" />
+<p align="center"><b>Results: Comparision of F2 Scores </b></p>
 </div>
 
+|              Model Used                 | With Default Settings | With Hyper-Parameter Tuning |
+| :-------------------------------------- | :-------------------: | :--------------------------:| 
+| K-Nearest Neighbors (Baseline)          |         0.25          |               -             |
+| Support Vector Machines with RBF Kernel |         0.0           |                             |
+| Linear Support Vector Machines          |                       |                             |
+   
 
 ### Possible Next Steps
 * Estimating variance

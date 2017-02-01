@@ -82,8 +82,8 @@ In theory, we should be able to improve upon the baseline models by tuning the m
 The C and gamma hyper-parameters can vary by several orders of magnitude, so finding the optimal configuration is no small task. Employing a [grid search](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html) can be computationally expensive - almost prohibitatively expensive without parallel computing resources. Fortunately, we do not have to exhaustively  
 
 <div align="center">
-<p align="center"><b>An Acquisition Function Combing a Unidimensional Space for Three Iterations</b></p>
-<img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/bayesian_optimization.png" align="middle" width="820" height="537" />
+<p align="center"><b>An Acquisition Function Combing a Unidimensional Space for Two Iterations</b></p>
+<img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/bayesian_optimization.png" align="middle" width="656" height="430" />
 </div>
 
 ### Results 

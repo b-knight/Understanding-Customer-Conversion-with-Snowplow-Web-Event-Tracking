@@ -46,9 +46,10 @@ The raw Snowplow data available is approximately 15 gigabytes spanning over 300 
 I use the phrase 'variable' as opposed to 'feature', since this dataset will need to undergo substantial transformation before we can employ any supervised learning technique. Each row has an 'event_id' along with an 'event_name' and a ‘page url.’ The event id is the row’s unique identifier, the event name is the type of event, and the page url is the URL within the marketing site where the event took place.
 
 The distillation of the raw data into a transformed feature set with labels is handled by the iPython notebook 'Notebook 1 - Data Munging.' In transforming the data, we will need to create features by creating combinations of event types and distinct URLs, and counting the number of occurrences while grouping on accounts. For instance, if ‘.../pay-ment plan.com’ is a frequent page url, then the number of page views on payment plan.com would be one feature, the number of page pings would be another, as would the number of web forms submitted, and so forth. Given that there are six distinct event types and dozens of URLs within the marketing site, then the feature space quickly expands to encompass hundreds of features. This feature space will only widen as we add additional variables to the mix including geo region, number of visitors per account, and so forth.
-
+<div>
 <div align="center">
 <img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/Data_Transformation.png" align="middle" width="626" height="408" />
+</div>
 </div>
 
 
@@ -59,7 +60,7 @@ distinct cookies associated with the account, and the sum total of all Internet 
 
 Finally, it bears noting that 'br_name' (the name of the visitor’s browser), 'os_name' (the name of the vistor’s operating system), and 'os_timezone' (the client’s operating system timezone) were not included in the ultimate version of the transformed data. The transformed variables of 'br_name' and 'os_name' were used initially. However, their incorporation added +40 features to the already expansive feature space resulting in inferior performance and so they we subsequently dropped.<br>
 
-###Problem Statement
+### Data Exploration
 
 Exploring the transformed data, two features quickly become apparent. 
 

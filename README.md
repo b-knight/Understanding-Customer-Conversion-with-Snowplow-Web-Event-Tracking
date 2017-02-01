@@ -50,7 +50,7 @@ The exploratory analysis of the initial feature set is handled in the iPython no
 
 <div align="center">
 <p align="center"><b>Summary Statistics: Distribution of Labels (16,607 Observations)</b></p>
-<img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/exploratory_analysis-labels.png" align="middle" width="600" height="400" />
+<img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/exploratory_analysis-labels.png" align="middle" width="820" height="400" />
 </div>
 
 

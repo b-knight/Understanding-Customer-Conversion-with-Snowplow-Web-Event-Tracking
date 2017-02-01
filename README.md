@@ -1,4 +1,4 @@
-# Understanding Customer Conversion with Snowplow Web Event Tracking <br> <sub> Benjamin S. Knight, January 27th 2017 </sub>
+# Understanding Customer Conversion <br> with Snowplow Web Event Tracking <br> <sub> Benjamin S. Knight, January 27th 2017 </sub>
 
 ### Project Overview
 Here I apply machine learning techniques to Snowplow web event data to infer whether trial account holders will become paying customers based on their history of visiting the marketing site. By predicting which trial account holders have the greatest likelihood of adding a credit card and converting to paying customers, we can more efficiently deploy scarce Sales Department resources. 

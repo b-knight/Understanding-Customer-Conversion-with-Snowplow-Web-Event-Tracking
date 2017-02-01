@@ -47,7 +47,7 @@ I use the phrase 'variable' as opposed to 'feature', since this dataset will nee
 
 <div align="center">
 <img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/Data_Transformation.png" align="middle" width="626" height="408" />
-</div>
+</div><br>
 
 The distillation of the raw data into a transformed feature set with labels is handled by the iPython notebook 'Notebook 1 - Data Munging.' In transforming the data, we will need to create features by creating combinations of event types and distinct URLs, and counting the number of occurrences while grouping on accounts. For instance, if ‘.../pay-ment plan.com’ is a frequent page url, then the number of page views on payment plan.com would be one feature, the number of page pings would be another, as would the number of web forms submitted, and so forth. Given that there are six distinct event types and dozens of URLs within the marketing site, then the feature space quickly expands to encompass hundreds of features. This feature space will only widen as we add additional variables to the mix including geo region, number of visitors per account, and so forth.
 
@@ -70,7 +70,7 @@ With the raw data transformed, our observations are no longer individual events 
 How do we know if our ultimate model is any good? To establish a baseline of model performance, I implement a [K-Nearest Neighbors](http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html) model within the iPython notebook 'Notebook 3 - KNN (Baseline).' In the same manner as the subsequent model selection, I allocate 90% of the data for training (14,946 observations) and 10% for model testing (1,661 observations). Given the binary nature of the label, I specify the model as having 2 neighbors. I run the resulting model on the test data using 100-fold cross validation. Averaging the 100 resultant F2 scores, we thus establish a benchmark model performance of F2 = 0.04.
 
 ### Algorithms and Techniques
-We start our anlysis with K-Nearest Neighbors, but then move on to more sophisticated algorithms. The 
+We start our analysis with establishing a benchmark using K-Nearest Neighbors (KNN) before moving on to more sophisticated algorithms. Like KNN, logistic regression is computationally inexpensive - a definite strength given the size the data set (n = 16,607). In addition, logistic regression is uniquely well-suited to the binary nature of the outcome variable. The second algorithm selected is linear Support Vector Machines (SVM). As with the other algorithms, linear SVM is relatively inexpensive. Linear SVM is also well-suited for the high dimensionality of our data set (581 features). The finel algorithm used is SVM with a RBF kernel. SVM + RBF models tend to be perform well with binary data [(Wainer, 2016)](https://arxiv.org/pdf/1606.00930v1.pdf), but are far less expensive than random forest models.  
 
 ### Implementation
 The initial project conception and proposal can be found in the 'Proposal' directory in both .tex and .pdf formats (Proposal.tex and Proposal.pdf). A slide deck summarizing the proposal is also available in the same directory (Initial Presentation.pdf). The original data, being over 5 gigabytes, is not available. However, readers wanting to access a sample of the raw data can do so via the 'raw_dataset_sample.csv' in the Data directory. The transformed data is available in the 'munged_df.csv' file, also within the Data directory.

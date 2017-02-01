@@ -111,16 +111,16 @@ At first glance, it would appear that the Bayesian optimization worsened the pre
 </div>
 
 <div align="center">
-<p align="center"><b>Results: Comparision of F2 Scores Averaged from 100-Fold Cross Validation</b></p>
+<p align="center"><b>Results: Comparision of Performance Metrics Averaged from 100-Fold Cross Validation</b></p>
 </div>
 
 |              Model Used                                                 | F2 Score | Recall  | Precision |
 | :---------------------------------------------------------------------- | :------: | :-----: | :-------: |
-|<sub> K-Nearest Neighbors (Baseline)                                     |   0.04   |         |           |
-|<sub> Support Vector Machines with RBF Kernel                            |   0.00   |         |           |
-|<sub> Support Vector Machines with RBF Kernel and Bayesian Optimization  |   0.03   |         |           |
-|<sub> Linear Support Vector Machines                                     |   0.16   |         |           |
-|<sub> Linear Support Vector Machines with Bayesian Optimization          | *0.25*   |         |           |
+|<sub> K-Nearest Neighbors (Baseline)                                     |   0.04   |  0.04   | 0.04      |
+|<sub> Support Vector Machines with RBF Kernel                            |   0.00   |  0.00   | 0.00      |
+|<sub> Support Vector Machines with RBF Kernel and Bayesian Optimization  |   0.03   | 0.03    | 0.03      |
+|<sub> Linear Support Vector Machines                                     |   0.16   | 0.20    | 0.13      |
+|<sub> Linear Support Vector Machines with Bayesian Optimization          | **0.25** | **0.33**| **0.14**  |
 
 ### Possible Next Steps
 * Estimating variance

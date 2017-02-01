@@ -18,30 +18,30 @@ The F2 score is derived from the [F1 score](https://en.wikipedia.org/wiki/F1_sco
 ### Data Preprocessing 
 The raw Snowplow data available is approximately 15 gigabytes spanning over 300 variables and tens of millions of events from November 2015 to January 2017. When we omit fields that are not in active use, are redundant, contain personal identifiable information (P.I.I.), or which cannot have any conceivable baring on customer conversion, then we are left with 14.6 million events spread across 22 variables. 
 
-|<sub>Snowplow Variable Name         |<sub>Snowplow Variable Description                                                  |
-| ---------------------------------- |-----------------------------------------------------------------------------------------| 
-| <sub>*event_id*            | <sub>The unique Snowplow event identifier                                                 |
-| <sub>*account_id*          | <sub>The account number if an account is associated with the domain userid                |
-| <sub>*reg_date*            | <sub>The date an account was registered                                                   |
-| <sub>*cc_date_added*       | <sub>The date a credit card was added                                                     |
-| <sub>*collector_tstamp*    | <sub>The timestamp (in UTC) when the Snowplow collector first recorded the event          |
-| <sub>*domain_userid* | <sub>This corresponds to a Snowplow cookie and will tend to correspond to a single internet device|
-| <sub>*domain_sessionidx*   | <sub>The number of sessions to date that the domain userid has been tracked               |
-| <sub>*domain_sessionid*    | <sub>The unique identifier for the Snowplow cookie/session                                |
-| <sub>*event_name*          | <sub>The type of event recorded                                                           |
-| <sub>*geo_country*         | <sub>The ISO 3166-1 code for the country that the visitor’s IP address is located         |
-| <sub>*geo_region_name*     | <sub>The ISO-3166-2 code for country region that the visitor’s IP address is in           |
-| <sub>*geo_city*            | <sub>The city the visitor’s IP address is in                                              |
-| <sub>*page_url*            | <sub>The page URL                                                                         |
-| <sub>*page_referrer*       | <sub>The URL of the referrer (previous page)                                              |
-| <sub>*mkt_medium*          | <sub>The type of traffic source (e.g. ’cpc’, ’affiliate’, ’organic’, ’social’)            |
-| <sub>*mkt_source*          | <sub>The company / website where the traffic came from (e.g. ’Google’, ’Facebook’)        |
-| <sub>*se_category*         | <sub>The event type                                                                       |
-| <sub>*se_action*           | <sub>The action performed / event name (e.g. ’add-to-basket’, ’play-video’)               |
-| <sub>*br_name*             | <sub>The name of the visitor’s browser                                                    |
-| <sub>*os_name*             | <sub>The name of the vistor’s operating system                                            |
-| <sub>*os_timezone*         | <sub>The client’s operating system timezone                                               |
-| <sub>*dvce_ismobile*       | <sub>Is the device mobile? (1 = ’yes’)                                                    |
+|<sub>Snowplow Variable Name</sub>   |<sub>Snowplow Variable Description</sub>                                         |
+| ---------------------------------- |---------------------------------------------------------------------------------| 
+| <sub>*event_id*</sub>              | <sub>The unique Snowplow event identifier</sub>                                 |
+| <sub>*account_id*</sub>            | <sub>The account number if an account is associated with the domain userid</sub>|
+| <sub>*reg_date*</sub>              | <sub>The date an account was registered </sub>                                  |
+| <sub>*cc_date_added*</sub>    | <sub>The date a credit card was added                                                     |
+| <sub>*collector_tstamp*</sub> | <sub>The timestamp (in UTC) when the Snowplow collector first recorded the event          |
+| <sub>*domain_userid*</sub>    | <sub>This corresponds to a Snowplow cookie and will tend to correspond to a single internet device|
+| <sub>*domain_sessionidx*</sub>     | <sub>The number of sessions to date that the domain userid has been tracked               |
+| <sub>*domain_sessionid*</sub>      | <sub>The unique identifier for the Snowplow cookie/session                                |
+| <sub>*event_name*</sub>            | <sub>The type of event recorded                                                           |
+| <sub>*geo_country*</sub>           | <sub>The ISO 3166-1 code for the country that the visitor’s IP address is located         |
+| <sub>*geo_region_name*</sub>       | <sub>The ISO-3166-2 code for country region that the visitor’s IP address is in           |
+| <sub>*geo_city*</sub>              | <sub>The city the visitor’s IP address is in                                              |
+| <sub>*page_url*</sub>              | <sub>The page URL                                                                         |
+| <sub>*page_referrer*</sub>         | <sub>The URL of the referrer (previous page)                                              |
+| <sub>*mkt_medium*</sub>            | <sub>The type of traffic source (e.g. ’cpc’, ’affiliate’, ’organic’, ’social’)            |
+| <sub>*mkt_source*</sub>            | <sub>The company / website where the traffic came from (e.g. ’Google’, ’Facebook’)        |
+| <sub>*se_category*</sub>           | <sub>The event type                                                                       |
+| <sub>*se_action*</sub>             | <sub>The action performed / event name (e.g. ’add-to-basket’, ’play-video’)               |
+| <sub>*br_name*</sub>               | <sub>The name of the visitor’s browser                                                    |
+| <sub>*os_name*</sub>               | <sub>The name of the vistor’s operating system                                            |
+| <sub>*os_timezone*</sub>           | <sub>The client’s operating system timezone                                               |
+| <sub>*dvce_ismobile*</sub>         | <sub>Is the device mobile? (1 = ’yes’)                                                    |
 
 I use the phrase 'variable' as opposed to 'feature', since this dataset will need to undergo substantial transformation before we can employ any supervised learning technique. Each row has an 'event_id' along with an 'event_name' and a ‘page url.’ The event id is the row’s unique identifier, the event name is the type of event, and the page url is the URL within the marketing site where the event took place.
 
@@ -49,7 +49,8 @@ The distillation of the raw data into a transformed feature set with labels is h
 
 <div align="center">
 <img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/Data_Transformation.png" align="middle" width="626" height="408" />
-</div><br>
+</div>
+
 
 With the raw data transformed, our observations are no longer individual events but indivual accounts spanning the period November 2015 to January 2017. Our data set has 16,607 accounts and 581 features. 290 of these represent counts of various combinations of web events and URLs grouped by account. Next there are two aggregated features - the total number of
 distinct cookies associated with the account, and the sum total of all Internet sessions linked to that account.There are also 151 features that represent counts of page view events linked to IP addresses within a certain country (e.g. a count of page views from China, a count of page views from France, and so forth). <br><br>
@@ -58,10 +59,11 @@ distinct cookies associated with the account, and the sum total of all Internet 
 
 Finally, it bears noting that 'br_name' (the name of the visitor’s browser), 'os_name' (the name of the vistor’s operating system), and 'os_timezone' (the client’s operating system timezone) were not included in the ultimate version of the transformed data. The transformed variables of 'br_name' and 'os_name' were used initially. However, their incorporation added +40 features to the already expansive feature space resulting in inferior performance and so they we subsequently dropped.<br>
 
-### Data Exploration
+###Problem Statement
+
 Exploring the transformed data, two features quickly become apparent. 
 
-<!-- <br>
+<br>
 <div align="center">
 <p align="center"><b>Summary Statistics: Distribution of Labels (16,607 Observations)</b></p>
 <img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/exploratory_analysis-labels.png" align="middle" width="820" height="400" />
@@ -72,7 +74,7 @@ Exploring the transformed data, two features quickly become apparent.
 <p align="center"><b>Summary Statistics: Means and Standard Deviations of Spare Feature Space (581 Features)</b></p>
 <img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/exploratory_analysis-feature_means.png" align="middle" width="420" height="320" />
 <img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/exploratory_analysis-feature_sds.png" align="middle" width="420" height="320" />
-</div> -->
+</div>
 
 ### Benchmark 
 How do we know if our ultimate model is any good? To establish a baseline of model performance, I implement a [K-Nearest Neighbors](http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html) model within the iPython notebook 'Notebook 3 - KNN (Baseline).' In the same manner as the subsequent model selection, I allocate 90% of the data for training (14,946 observations) and 10% for model testing (1,661 observations). Given the binary nature of the label, I specify the model as having 2 neighbors. I run the resulting model on the test data using 100-fold cross validation. Averaging the 100 resultant F2 scores, we thus establish a benchmark model performance of F2 = 0.04.

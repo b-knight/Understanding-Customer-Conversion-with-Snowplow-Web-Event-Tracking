@@ -75,7 +75,7 @@ The exploratory analysis of the initial feature set is handled in the iPython no
 How do we know if our ultimate model is any good? To establish a baseline of model performance, I implement a [K-Nearest Neighbors](http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html) model within the iPython notebook 'Notebook 3 - KNN (Baseline).' In the same manner as the subsequent model selection, I allocate 90% of the data for training (14,946 observations) and 10% for model testing (1,661 observations). Given the binary nature of the label, I specify the model as having 2 neighbors. I run the resulting model on the test data using 100-fold cross validation. Averaging the 100 resultant F2 scores, we thus establish a benchmark model performance of F2 = 0.04.
 
 ### Algorithms and Techniques
-
+We start our anlysis with K-Nearest Neighbors, but then move on to more sophisticated algorithms. The 
 
 ### Implementation
 The initial project conception and proposal can be found in the 'Proposal' directory in both .tex and .pdf formats (Proposal.tex and Proposal.pdf). A slide deck summarizing the proposal is also available in the same directory (Initial Presentation.pdf). The original data, being over 5 gigabytes, is not available. However, readers wanting to access a sample of the raw data can do so via the 'raw_dataset_sample.csv' in the Data directory. The transformed data is available in the 'munged_df.csv' file, also within the Data directory.
@@ -109,6 +109,10 @@ At first glance, it would appear that the Bayesian optimization worsened the pre
 <img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/SVM_with_RBF.png" width="432" height="360" />
 <img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/Linear_SVM.png" width="432" height="360" />
 </div>
+<div align="center">
+<img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/Linear_SVM.png" width="432" height="360" />
+</div>
+
 
 <div align="center">
 <p align="center"><b>Results: Comparision of Performance Metrics Averaged from 100-Fold Cross Validation</b></p>
@@ -117,6 +121,8 @@ At first glance, it would appear that the Bayesian optimization worsened the pre
 |              Model Used                                                 | F2 Score | Recall  | Precision |
 | :---------------------------------------------------------------------- | :------: | :-----: | :-------: |
 |<sub> K-Nearest Neighbors (Baseline)                                     |   0.04   |  0.04   | 0.04      |
+|<sub> Logistic Regression                                                |   0.17   |  0.19   | 0.13      |
+|<sub> Logistic Regression with Bayesian Optimization                     |   0.15   |  0.18   | 0.14      |
 |<sub> Support Vector Machines with RBF Kernel                            |   0.00   |  0.00   | 0.00      |
 |<sub> Support Vector Machines with RBF Kernel and Bayesian Optimization  |   0.03   | 0.03    | 0.03      |
 |<sub> Linear Support Vector Machines                                     |   0.16   | 0.20    | 0.13      |

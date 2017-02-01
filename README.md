@@ -83,7 +83,7 @@ The C and gamma hyper-parameters can vary by several orders of magnitude, so fin
 
 <div align="center">
 <p align="center"><b>An Acquisition Function Combing a Unidimensional Space for Three Iterations</b></p>
-<img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/bayesian_optimization.png" align="middle" width="585" height="720" />
+<img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/bayesian_optimization.png" align="middle" width="820" height="537" />
 </div>
 
 ### Results 
@@ -95,12 +95,12 @@ At first glance, it would appear that the Bayesian optimization worsened the pre
 </div>
 
 <div align="center">
-<p align="center"><b>Results: Comparision of F2 Scores Averaged from 20-Fold Cross Validation</b></p>
+<p align="center"><b>Results: Comparision of F2 Scores Averaged from 100-Fold Cross Validation</b></p>
 </div>
 
 |              Model Used                 | With Default Settings | With Hyper-Parameter Tuning |
 | :-------------------------------------- | :-------------------: | :--------------------------:| 
-| K-Nearest Neighbors (Baseline)          |         0.047         |                             |
+| K-Nearest Neighbors (Baseline)          |         0.04          |                             |
 | Support Vector Machines with RBF Kernel |         0.0           |            0.035            |
 | Linear Support Vector Machines          |         0.203         |            0.230            |
    

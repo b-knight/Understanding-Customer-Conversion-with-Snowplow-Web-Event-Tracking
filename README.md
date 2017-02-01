@@ -101,8 +101,8 @@ At first glance, it would appear that the Bayesian optimization worsened the pre
 |              Model Used                 | With Default Settings | With Hyper-Parameter Tuning |
 | :-------------------------------------- | :-------------------: | :--------------------------:| 
 | K-Nearest Neighbors (Baseline)          |         0.04          |                             |
-| Support Vector Machines with RBF Kernel |         0.0           |            0.035            |
-| Linear Support Vector Machines          |         0.203         |            0.230            |
+| Support Vector Machines with RBF Kernel |         0.0           |            0.03             |
+| Linear Support Vector Machines          |         0.17          |            0.26             |
    
 
 ### Possible Next Steps

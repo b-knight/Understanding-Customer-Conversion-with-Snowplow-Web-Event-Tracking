@@ -59,6 +59,8 @@ distinct cookies associated with the account, and the sum total of all Internet 
 Finally, it bears noting that 'br_name' (the name of the visitor’s browser), 'os_name' (the name of the vistor’s operating system), and 'os_timezone' (the client’s operating system timezone) were not included in the ultimate version of the transformed data. The transformed variables of 'br_name' and 'os_name' were used initially. However, their incorporation added +40 features to the already expansive feature space resulting in inferior performance and so they we subsequently dropped.<br>
 
 ### Data Exploration
+Exploring the transformed data, two features quickly become apparent.
+
 <div align="center">
 <p align="center"><b>Summary Statistics: Distribution of Labels (16,607 Observations)</b></p>
 <img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/exploratory_analysis-labels.png" align="middle" width="820" height="400" />

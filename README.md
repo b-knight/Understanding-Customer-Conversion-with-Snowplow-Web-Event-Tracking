@@ -139,11 +139,14 @@ It is striking how the AUC scores for the precision-recall curves imply a very d
 </div>
 
 ### Conclusion 
+This project sought to differentiate soon-to-be paying customers from non-paying account-holders based solely on their activity history on the marketing site. This is a tall order, and while the linear SVM did achieve a F2 score of 0.25 (a more than five-fold improvement vis-avis the KNN benchmark) in practical terms the model is not yet successful enough to be used as part of the sales process. Should the company see a drastic influx of new leads, then our linear SVM model can conceivably be used to prioritize sales outreach. However, in the mean time we should re-examine the model for areas of improvement. 
 
-### Possible Next Steps
-* Estimating variance
-* Possible redefinition of success metric to weigh recall more highly than precision 
-* Dimensionality reduction via [LDA](https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation)
-* Use of [Random Forests](https://en.wikipedia.org/wiki/Random_forest) 
+A major challange of this project is the high dimensionality of the data combined with the sparse feature space. Dimensionality reduction via [principal component analysis](https://en.wikipedia.org/wiki/Principal_component_analysis) (PCA) was attempted, but yielded inferior model performance and was discontinued. Nevertheless, dimensionality reduction could be used to open up an array of robut models such as random forests. A possible alternative to PCA is [linear discriminant analysis](https://en.wikipedia.org/wiki/Linear_discriminant_analysis) (LDA). Unlike PCA, LDA emphasizes discrimination between classes. Moreover, given the large number of observations available to us, PCA is generally les s likely to perform well relative to LDA [(Martinez and Kak, 2001)](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.144.5303&rep=rep1&type=pdf).
+
+
+
+
+
+
 * Use of [OneClassSVM](http://scikit-learn.org/stable/modules/generated/sklearn.svm.OneClassSVM.html#sklearn.svm.OneClassSVM)
 * Accounting for sparse feature space

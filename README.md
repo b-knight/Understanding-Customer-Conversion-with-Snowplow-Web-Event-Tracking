@@ -101,7 +101,8 @@ The true distribution of F1 scores is represented by the dashed line, but in rea
 <div align="center">
 <p align="center"><b>An Acquisition Function Combing a Unidimensional Space for Two Iterations</b></p>
 <img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/bayesian_optimization.png" align="middle" width="591" height="387" />
-</div><br>
+</div>
+
 
 The Bayesian optimizer resolves the perennial dilemma between exploration and optimization by use of an acquisition function, shown above in green. The red triangle denotes the global maximum of the acquisition function, with the subsequent iteration deriving the F2 score for that value of C. Note how the acquisition function derives high value from regions of relatively low information (the exploration impetus), yet achieves even greater values when in the vicinity of known maxima of the inferred distribution (the optimization impetus).
 

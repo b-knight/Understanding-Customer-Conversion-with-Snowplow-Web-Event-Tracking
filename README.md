@@ -98,11 +98,12 @@ Here I am indebted to Fernando Nogueira and his development of the [BayesianOpti
 The below figure illustrates the second and third iterations of this process in a hypothetical unidimensional space - for instance, the hyper-parameter C. Thus, the horizontal axis represents the individual values of C while the horizontal axis represents the metric that we are trying to optimize - in this case, the F2 score. 
 
 The true distribution of F1 scores is represented by the dashed line, but in reality is unknown. The dots represent derived F2 scores. The continuous line represents the inferred distribution of F2 score. The blue areas represent aa 95% confidence interval for the inferred distribution, or in other words, represent areas of potential information gain.  
+<div>
 <div align="center">
 <p align="center"><b>An Acquisition Function Combing a Unidimensional Space for Two Iterations</b></p>
 <img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/bayesian_optimization.png" align="middle" width="591" height="387" />
 </div>
-
+</div>
 
 The Bayesian optimizer resolves the perennial dilemma between exploration and optimization by use of an acquisition function, shown above in green. The red triangle denotes the global maximum of the acquisition function, with the subsequent iteration deriving the F2 score for that value of C. Note how the acquisition function derives high value from regions of relatively low information (the exploration impetus), yet achieves even greater values when in the vicinity of known maxima of the inferred distribution (the optimization impetus).
 
@@ -111,6 +112,10 @@ For the purposes of Bayesian optimization, we used 20-fold cross validation with
 
 ### Results 
 The optimal model in terms of F2 score, recall, but also precision was the linear SVM model with hyper-parameter tuning via Bayesian optimization. The linear SVM model was so successful that the non-optimized version was the second best performing model. The linear SVM model achieved a mean F2 score of 0.25 versus 0.04 for the benchmark KNN model. For recall, the linear SVM achieved a mean score of 0.33. In other words, the model sucessfully found a third of the valuable needles within our haystack. The model also achieved a mean precision of 0.14 - effectively tying with the hyper-parameter tuned logistic regression model. To put this in context, a sales representative engaged in blind guessing which acccounts would convert to paying customers would be hard pressed to be accurate more than 6% of the time (the rate of customer conversion).        
+
+<div align="center">
+<p align="center"><b>Results: Comparision of Performance Metrics Averaged from 100-Fold Cross Validation</b></p>
+</div>
 
 |              Model Used                                                 | F2 Score | Recall  | Precision |
 | :---------------------------------------------------------------------- | :------: | :-----: | :-------: |
@@ -122,7 +127,7 @@ The optimal model in terms of F2 score, recall, but also precision was the linea
 |<sub> Linear Support Vector Machines                                     |   0.16   | 0.20    | 0.13      |
 |<sub> Linear Support Vector Machines with Hyper-Parameter Tuning         | **0.25** | **0.33**| **0.14**  |
 
-
+It is striking how the AUC scores for the precision-recall curves imply a very different performance ranking than what the F2 scores report. Looking to the figures below, we can see that the linear SVM with hyper-parameter tuning actually has the lowest AUC of any of the curves (AUC = 0.10). These AUC scores are based upon average precision as opposed to recall. However, it is recall, not precision, that is our priority here. Nevertheless, it is worthing bearing in mind that more often than not, the price for greater recall is precision and vice versa.    
 
 <div align="center">
 <p align="center"><b>Results: SVM with RBF Kernel and Linear SVM (Default Hyper-Parameter Settings)</b></p>
@@ -133,12 +138,7 @@ The optimal model in terms of F2 score, recall, but also precision was the linea
 <img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/Logistic_Regression.png" width="432" height="360" />
 </div>
 
-
-<div align="center">
-<p align="center"><b>Results: Comparision of Performance Metrics Averaged from 100-Fold Cross Validation</b></p>
-</div>
-
-
+### Conclusion 
 
 ### Possible Next Steps
 * Estimating variance

@@ -88,7 +88,17 @@ We start our analysis with establishing a benchmark using K-Nearest Neighbors (K
 
 Like KNN, logistic regression is computationally inexpensive - a definite strength given the size the data set (n = 16,607). In addition, logistic regression is uniquely well-suited to the binary nature of the outcome variable. Sci-Kit Learn's [LogisticRegression](http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) classifier works through [maximum likelihood estimation](https://en.wikipedia.org/wiki/Maximum_likelihood_estimation). Through many iterations, the algorithm determines what sequence of weights will, when applied to our 581 features, maximize the likelihood that the pattern of successes and failures seen in the training set will emerge. An added strength of the classifier (of potential interest to future, more in-depth analysis) is that it generates the 'coef_' attribute - a vector of coefficients that can indicate which features are the most useful predictors of the outcome variable. 
 
-The second and third algorithms selected are Support Vector Machines (SVM) - the first with a [Radial Basis Function](Radial basis function kernel) (RBF) kernel and the other using a linear function. The RBF kernel is by far, the most expensive algorithm used here (hyper-parameter tuning took approximately 17 hours). The RBF kernel works by creating an additional dimension of information derived fom the squared Euclidean distance of one point vis-a-vis all of the other points. Models using SVM with RBF kernels tend to be perform well with binary data [(Wainer, 2016)](https://arxiv.org/pdf/1606.00930v1.pdf), but are far less expensive than random forest models. 
+The second and third algorithms selected are Support Vector Machines (SVM) - the first with a [Radial Basis Function](Radial basis function kernel) (RBF) kernel and the other using a linear function. SVM works by placing multiple hyperplane (support vectors) through the data. The set of hyperplanes that maximizes the distance between the classes is then selected, with the center of the space delimited by the hyperplanes becoming the threshold for classification. 
+
+<div>
+<div align="center">
+<p align="center"><b>A Linear Support Vector Machine Finding the Optimal Separation Between Two Classes</b></p>
+<img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/bayesian_optimization.png" align="middle" width="591" height="387" />
+</div>
+</div>
+
+
+The RBF kernel is by far, the most expensive algorithm used here (hyper-parameter tuning took approximately 17 hours). For this, we use Sci-Kit Learn's [SVM](http://scikit-learn.org/stable/modules/svm.html) functionality. The RBF kernel works by creating an additional dimension of information derived fom the squared Euclidean distance of one point vis-a-vis all of the other points. Models using SVM with RBF kernels tend to be perform well with binary data [(Wainer, 2016)](https://arxiv.org/pdf/1606.00930v1.pdf), but are far less expensive than random forest models. 
 
 A strength of RBF kernels is that they can accomodate data that is not [linearly separable](https://en.wikipedia.org/wiki/Linear_separability). However, if our data is already linearly separable, then such an approach is not just expensive - it may lead to over-fitting (Webb, 2002, p.138). For this reason, we also use a linear SVM. Linear SVM assumes that the data is linearly separable, and as a result of this assumption, is relatively inexpensive. Linear SVM is also well-suited for the high dimensionality of our data set (581 features).
 

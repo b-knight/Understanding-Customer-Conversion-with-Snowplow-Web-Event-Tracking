@@ -119,6 +119,7 @@ The true distribution of F1 scores is represented by the dashed line, but in rea
 <div>
 <div align="center">
 <p align="center"><b>An Acquisition Function Combing a Unidimensional Space for Two Iterations</b></p>
+<p>Source:<a href="https://advancedoptimizationatharvard.wordpress.com/2014/04/28/bayesian-optimization-part-ii/"> Bayesian Optimization and Its Applications Part II, gauravbharaj, April 28, 2014</a></p>
 <img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/bayesian_optimization.png" align="middle" width="591" height="387" />
 </div>
 </div>

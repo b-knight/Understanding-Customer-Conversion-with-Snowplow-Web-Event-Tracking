@@ -93,7 +93,7 @@ The second and third algorithms selected are Support Vector Machines (SVM) - the
 <div>
 <div align="center">
 <p align="center"><b>A Linear Support Vector Machine Finding the Optimal Separation Between Two Classes</b></p>
-<img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/bayesian_optimization.png" align="middle" width="591" height="387" />
+<img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/SVM_example_image.png" align="middle" width="400" height="431" />
 </div>
 </div>
 

@@ -15,11 +15,13 @@ As we discuss later, the data is highly imbalanced (successful customer conversi
 <div align="center">
 <img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/F2_Score_Equation.png" align="middle" width="453" height="113" />
 </div>
+
 The F2 score is derived from the [F1 score](https://en.wikipedia.org/wiki/F1_score) by setting the weight of the \beta parameter to 2, effectively increasing the penalty for false negatives. While the F2 score is the arbiter for ultimate model selection, we also use [precision-recall curves](http://scikit-learn.org/stable/auto_examples/model_selection/plot_precision_recall.html) to clarify model performance. We have opted for precision-recall curves as opposed to the more conventional [receiver operating characteristic](https://en.wikipedia.org/wiki/Receiver_operating_characteristic) (ROC) curve due to the highly imbalanced nature of the data [(Saito, 2016)](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0118432).
 
 ### Data Preprocessing 
 The raw Snowplow data available is approximately 15 gigabytes spanning over 300 variables and tens of millions of events from November 2015 to January 2017. When we omit fields that are not in active use, are redundant, contain personal identifiable information (P.I.I.), or which cannot have any conceivable baring on customer conversion, then we are left with 14.6 million events spread across 22 variables. 
 
+<p align="center"><b>Table 1: Selected Snowplow Variables Prior to Preprocessing</b></p>
 |<sub>Snowplow Variable Name</sub>   |<sub>Snowplow Variable Description</sub>                                         |
 | ---------------------------------- |---------------------------------------------------------------------------------| 
 | <sub>*event_id*</sub>              | <sub>The unique Snowplow event identifier</sub>                                 |
@@ -48,6 +50,7 @@ The raw Snowplow data available is approximately 15 gigabytes spanning over 300 
 I use the phrase 'variable' as opposed to 'feature', since this dataset will need to undergo substantial transformation before we can employ any supervised learning technique. Each row has an 'event_id' along with an 'event_name' and a ‘page url.’ The event id is the row’s unique identifier, the event name is the type of event, and the page url is the URL within the marketing site where the event took place.
 
 The distillation of the raw data into a transformed feature set with labels is handled by the iPython notebook 'Notebook 1 - Data Munging.' In transforming the data, we will need to create features by creating combinations of event types and distinct URLs, and counting the number of occurrences while grouping on accounts. For instance, if ‘.../pay-ment plan.com’ is a frequent page url, then the number of page views on payment plan.com would be one feature, the number of page pings would be another, as would the number of web forms submitted, and so forth. Given that there are six distinct event types and dozens of URLs within the marketing site, then the feature space quickly expands to encompass hundreds of features. This feature space will only widen as we add additional variables to the mix including geo region, number of visitors per account, and so forth.
+<p align="center"><b>Figure 1: Management of Original Categorical Variables into Features </b></p>
 <div>
 <div align="center">
 <img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/Data_Transformation.png" align="middle" width="626" height="408" />
@@ -140,9 +143,8 @@ For the purposes of Bayesian optimization, we used 20-fold cross validation with
 The optimal model in terms of F2 score, recall, but also precision was the linear SVM model with hyper-parameter tuning via Bayesian optimization. The linear SVM model was so successful that the non-optimized version was the second best performing model. The linear SVM model achieved a mean F2 score of 0.25 versus 0.04 for the benchmark KNN model. For recall, the linear SVM achieved a mean score of 0.33. In other words, the model sucessfully found a third of the valuable needles within our haystack. The model also achieved a mean precision of 0.14 - effectively tying with the hyper-parameter tuned logistic regression model. To put this in context, a sales representative engaged in blind guessing which acccounts would convert to paying customers would be hard pressed to be accurate more than 6% of the time (the rate of customer conversion).        
 
 <div align="center">
-<p align="center"><b>Results: Comparision of Performance Metrics Averaged from 100-Fold Cross Validation</b></p>
+<p align="center"><b>Table 2: Comparision of Performance Metrics Averaged from 100-Fold Cross Validation</b></p>
 </div>
-
 |              Model Used                                                 | F2 Score | Recall  | Precision |
 | :---------------------------------------------------------------------- | :------: | :-----: | :-------: |
 |<sub> K-Nearest Neighbors (Baseline)                                     |   0.04   |  0.04   | 0.04      |

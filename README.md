@@ -19,7 +19,7 @@ As we discuss later, the data is highly imbalanced (successful customer conversi
 The F2 score is derived from the [F1 score](https://en.wikipedia.org/wiki/F1_score) by setting the weight of the \beta parameter to 2, effectively increasing the penalty for false negatives. While the F2 score is the arbiter for ultimate model selection, we also use [precision-recall curves](http://scikit-learn.org/stable/auto_examples/model_selection/plot_precision_recall.html) to clarify model performance. We have opted for precision-recall curves as opposed to the more conventional [receiver operating characteristic](https://en.wikipedia.org/wiki/Receiver_operating_characteristic) (ROC) curve due to the highly imbalanced nature of the data [(Saito, 2016)](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0118432).
 
 ### Data Preprocessing 
-The raw Snowplow data available is approximately 15 gigabytes spanning over 300 variables and tens of millions of events from November 2015 to January 2017. When we omit fields that are not in active use, are redundant, contain personal identifiable information (P.I.I.), or which cannot have any conceivable baring on customer conversion, then we are left with 14.6 million events spread across 22 variables. 
+The raw Snowplow data available is approximately 15 gigabytes spanning over 300 variables and tens of millions of events from November 2015 to January 2017. When we omit fields that are not in active use, are redundant, contain personal identifiable information (P.I.I.), or which cannot have any conceivable bearing on customer conversion, then we are left with 14.6 million events spread across 22 variables. 
 
 <p align="center"><b>Table 1: Selected Snowplow Variables Prior to Preprocessing</b></p>
 |<sub>Snowplow Variable Name</sub>   |<sub>Snowplow Variable Description</sub>                                         |
@@ -72,20 +72,20 @@ Exploring the transformed data, two features quickly become apparent. First, we 
 
 <br>
 <div align="center">
-<p align="center"><b>Summary Statistics: Distribution of Labels (16,607 Observations)</b></p>
+<p align="center"><b>Figure 2: Summary Statistics - Distribution of Labels (16,607 Observations)</b></p>
 <img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/exploratory_analysis-labels.png" align="middle" width="820" height="400" />
 </div>
 
 The second feature of note is that in addition to our feature space being wide with over 500 features, the features themselves are fairly sparse as the histograms below make clear. This is to be expected. The Snowpow features are highly specific. Examples include counts of certain types of events localized within Bangladesh, or the number page views associated with a bit of on-line content that was only made briefly available. As a result, the majority of features are extremely sparse.       
 
 <div align="center">
-<p align="center"><b>Summary Statistics: Means and Standard Deviations of Spare Feature Space (581 Features)</b></p>
+<p align="center"><b>Figure 3: Summary Statistics - Means and Standard Deviations of Spare Feature Space (581 Features)</b></p>
 <img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/exploratory_analysis-feature_means.png" align="middle" width="420" height="320" />
 <img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/exploratory_analysis-feature_sds.png" align="middle" width="420" height="320" />
 </div>
 
 ### Benchmark 
-How do we know if our ultimate model is any good? To establish a baseline of model performance, I implement a [K-Nearest Neighbors](http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html) model within the iPython notebook 'Notebook 3 - KNN (Baseline).' In the same manner as the subsequent model selection, I allocate 90% of the data for training (14,946 observations) and 10% for model testing (1,661 observations). Given the binary nature of the label, I specify the model as having 2 neighbors. I run the resulting model on the test data using 100-fold cross validation. Averaging the 100 resultant F2 scores, we thus establish a benchmark model performance of F2 = 0.04.
+How do we know if our ultimate model is any good? To establish a baseline of model performance, I implement a [K-Nearest Neighbors](http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html) model within the iPython notebook 'Notebook 3 - KNN (Baseline).' In the same manner as the subsequent model selection, I allocate 90% of the data for training (14,946 observations) and 10% for model testing (1,661 observations). I use the model's default setting of 5 neighbors. I run the resulting model on the test data using 100-fold cross validation. Averaging the 100 resultant F2 scores, we thus establish a benchmark model performance of F2 = 0.04.
 
 ### Algorithms and Techniques
 We start our analysis with establishing a benchmark using K-Nearest Neighbors (KNN) before moving on to more sophisticated algorithms. The KNN classifer works by selecting the target observation's n closest neighbors. The target observation is then classifed as being a member of the same class as the majority class within the n-sample. We use Sci-Kit Learn's 
@@ -97,7 +97,7 @@ The second and third algorithms selected are Support Vector Machines (SVM) - the
 
 <div>
 <div align="center">
-<p align="center"><b>A System of Linear Support Vector Machines Finding the Optimal Separation Between Two Classes</b></p>
+<p align="center"><b>Figure 4: A System of Linear Support Vector Machines Finding the Optimal Separation Between Two Classes</b></p>
 <p>Source:<a href="https://commons.wikimedia.org/wiki/File%3ASvm_max_sep_hyperplane_with_margin.png"> Wikipedia</a></p>
 <img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/SVM_example_image.png" align="middle" width="400" height="431" />
 </div>
@@ -128,7 +128,7 @@ The below figure illustrates the second and third iterations of this process in 
 The true distribution of F1 scores is represented by the dashed line, but in reality is unknown. The dots represent derived F2 scores. The continuous line represents the inferred distribution of F2 score. The blue areas represent aa 95% confidence interval for the inferred distribution, or in other words, represent areas of potential information gain.  
 <div>
 <div align="center">
-<p align="center"><b>An Acquisition Function Combing a Unidimensional Space for Two Iterations</b></p>
+<p align="center"><b>Figure 5: An Acquisition Function Combing a Unidimensional Space for Two Iterations</b></p>
 <p>Source:<a href="https://advancedoptimizationatharvard.wordpress.com/2014/04/28/bayesian-optimization-part-ii/"> Bayesian Optimization and Its Applications Part II, gauravbharaj, April 28, 2014</a></p>
 <img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/bayesian_optimization.png" align="middle" width="591" height="387" />
 </div>
@@ -158,7 +158,7 @@ The optimal model in terms of F2 score, recall, but also precision was the linea
 It is striking how the AUC scores for the precision-recall curves imply a very different performance ranking than what the F2 scores report. Looking to the figures below, we can see that the linear SVM with hyper-parameter tuning actually has the lowest AUC of any of the curves (AUC = 0.10). These AUC scores are based upon average precision as opposed to recall. However, it is recall, not precision, that is our priority here. Nevertheless, it is worthing bearing in mind that more often than not, the price for greater recall is precision and vice versa.    
 
 <div align="center">
-<p align="center"><b>Results: SVM with RBF Kernel and Linear SVM (Default Hyper-Parameter Settings)</b></p>
+<p align="center"><b>Figure 6: Precision-Recall Curves of All Three Algorithms with and without Hyper-Parameter Tuning </b></p>
 <img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/SVM_with_RBF.png" width="432" height="360" />
 <img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/Linear_SVM.png" width="432" height="360" />
 </div>

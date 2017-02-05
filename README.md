@@ -53,7 +53,7 @@ The distillation of the raw data into a transformed feature set with labels is h
 <p align="center"><b>Figure 1: Management of Original Categorical Variables into Features </b></p>
 <div>
 <div align="center">
-<img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/Data_Transformation.png" align="middle" width="626" height="408" />
+<img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/Data_Transformation.png" align="middle" width="565" height="368" />
 </div>
 </div>
 

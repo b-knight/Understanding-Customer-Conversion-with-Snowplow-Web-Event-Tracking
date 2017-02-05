@@ -174,10 +174,10 @@ A major challange of this project is the high dimensionality of the data combine
 LDA coupled with random forest modeling is one potential area to pursue. Another, more radical aproach would be to reconceive the problem not as one of supervised classification, but rather outlier detection. Given that the accounts of interest only make up 6% of the data set, there is an argument to be made that such observations are in fact - outliers. In pratical terms, we could leverage Sci-Kit Learn's [One Class SVM](http://scikit-learn.org/stable/modules/generated/sklearn.svm.OneClassSVM.html) funcationality. In this fashion, future extensions might take a factorial approach, varying between random forest versus One Class SVM and LDA-reduced data versus no dimensionality reduction. 
 
 ### References
-* Martinez, A., Avinash C. Kak. "PCA versus LDA," IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE, 23(2), 2001: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.144.5303&rep=rep1&type=pdf.
+* Martinez, A., Avinash C. Kak. "PCA versus LDA," IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE, 23(2), 2001: doi:10.1.1.144.5303.
 * Pedregosa et al. "Scikit-learn: Machine Learning in Python," JMLR 12, pp. 2825-2830, 2011.
 * Wainer, Jacques. "Comparison of 14 Different Families of Classification Algorithms on 115 Binary Datasets," June 6, 2016. Retrieved from  https://arxiv.org/pdf/1606.00930v1.pdf.
-* Saito T., Rehmsmeier M. "The Precision-Recall Plot Is More Informative than the ROC Plot When Evaluating Binary Classifiers on Imbalanced Datasets," PLoS ONE 10(3), 2015: e0118432. doi:10.1371/journal.pone.0118432.
+* Saito T., Rehmsmeier M. "The Precision-Recall Plot Is More Informative than the ROC Plot When Evaluating Binary Classifiers on Imbalanced Datasets," PLoS ONE 10(3), 2015: doi:10.1371.
 
 
 

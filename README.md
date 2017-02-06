@@ -214,7 +214,9 @@ The optimal model in terms of F2 score, recall, but also precision was the linea
 |<sub> Linear Support Vector Machines                                     |   0.16   | 0.20    | 0.13      |
 |<sub> Linear Support Vector Machines with Hyper-Parameter Tuning         | **0.25** | **0.33**| **0.14**  |
 
-It is striking how the AUC scores for the precision-recall curves imply a very different performance ranking than what the F2 scores report. Looking to the figures below, we can see that the linear SVM with hyper-parameter tuning actually has the lowest AUC of any of the curves (AUC = 0.10). These AUC scores are based upon average precision as opposed to recall. However, it is recall, not precision, that is our priority here. Nevertheless, it is worthing bearing in mind that more often than not, the price for greater recall is precision and vice versa.    
+It is striking how the AUC scores for the precision-recall curves imply a very different performance ranking than what the F2 scores report. Looking to the figures below, we can see that the linear SVM with hyper-parameter tuning actually has the lowest AUC of any of the curves (AUC = 0.10). These AUC scores are based upon average precision as opposed to recall. However, it is recall, not precision, that is our priority here. Nevertheless, it is worthing bearing in mind that more often than not, the price for greater recall is precision and vice versa.  
+
+The results suggest that our winning model - linear SVM with Bayesian optimization - represents a reasonably robust result. Our success metrics were derived from 100-fold cross validation, and so our F2 score, precision, and recall scores are unlikley to be the results of a statistical fluke. More intuitively, the hyper-parameter tuned linear SVM model had the smallest C value of any of the models above (C=335), the implication being that the linear SVM model should be less likely to overfit vis-a-vis the competing models.  
 
 <div align="center">
 <p align="center"><b>Figure 7: Precision-Recall Curves of All Three Algorithms with and without Hyper-Parameter Tuning </b></p>

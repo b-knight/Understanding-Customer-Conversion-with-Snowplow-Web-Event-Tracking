@@ -158,6 +158,14 @@ Stratified sampling works by aggregating observations on the class variable. In 
 </div>
 </div>
 
+With the data partitioned, we then use [KNeighborsClassifier](http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html#sklearn.neighbors.KNeighborsClassifier) to create a classifer, and apply it to the training data. With our model fit, we then use Scikit-Learn's [cross_val_score](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.cross_val_score.html) function to score the model's performance when applied to the test data. [Cross validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)) works by taking *k* subsets of the data, deriving a metric of interest from each subset, and then averaging the results. To guard against anomalous results, we use 100 subsets for our cross-validation.
+
+As for our "metric of interest," recall that our success metric is the F2 score. To instruct the *cross_val_score* function to derive the F2 score, we use the [make_scorer](http://scikit-learn.org/stable/modules/generated/sklearn.metrics.make_scorer.html) function with 'fbeta_score' as the metric, making sure to set the beta argument to *beta=2*.
+
+
+
+
+
 All models were first run using their default setting, while SVM + RBF, linear SVM, and logistic regression were run a second time after tuning the hyper-parameters with Bayesian optimization (see below). Mean F2 scores, recall, and precison were derived from 100-fold cross validation of the testing data. As a final note, it quickly became evident that the SVM + RBF kernel model was by far, the most computationally expensive. Including the tuning of hyper-parameters (see below), implementation of the SVM + RBF model took approximately 17 hours.
 
 ### Refinement

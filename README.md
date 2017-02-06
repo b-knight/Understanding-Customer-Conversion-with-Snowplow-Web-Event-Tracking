@@ -130,6 +130,9 @@ We implement a similiar process with country codes. There are over 200 distinct 
 
 The next categorical variable to be transformed is 'mkt_medium.' This variable denotes the type of traffic. For example 'cpc' represents cost-per-click, i.e. paid advertising. The medium 'affiliate' represents a visitor coming from a partner website (we can confirm because of the presence of that partner's UTM parameter). 'Organic' represents vistors who come to the marketing site without any external prodding - as in they are typing in the company's name in a search bar and clicking the results. Lastly, Snowplow categorizes visitors coming from [LinkedIn](https://www.linkedin.com), [Facebook](https://www.facebook.com), or other social networks as 'social.' Just as with the country codes before, we only include the aggregations of page views, ignoring the other event types. 
 
+Similiar to 'mkt_medium' is 'mkt_source.' The key difference is that 'mkt_source' represents a specific URL (e.g. Google, Adroll, etc.). After creating and aggregating the boolean variables, we are left with 42 features from the 'mkt_medium' variable. An additional note: The fact that 'mkt_source' is a portion of a URL means that the newly created column headers often contain elements (e.g. spaces) that can interfere with Panda's functionality. To prevent errors, we relabel the columns, dropping odd characters and utilizing underscores. 
+
+
 ##### Applying Machine Learning
 With the success metric finalized, we then proceeed to implement the algorithms detailed in the previous section. Originally, the models were implemented using a 80%:20% split between training and testing data. However, experimenting with the various models showed that increasing the size of the training data set significantly improved model performance. Ultimately, the models were run using a 90%:10% split between training (14,946 observations) and testing (1,661 observations). 
 

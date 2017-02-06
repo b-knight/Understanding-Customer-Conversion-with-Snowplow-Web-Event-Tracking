@@ -142,6 +142,19 @@ As a final touch, we drop all columns which contain no useful information (i.e. 
 By using 'Notebook 2 - Exploratory Analysis,' we can get a sense of the scope and structure of the transformed data. After reading in the data and necessary packages, we print such essential information as the number of observations and the number of features. This iPython notebook also creates the visualizations used in the **Data Exploration** sections, including a horizonatal barchart illustrating the imbalanaced nature of the data, as well as histograms of the features' means and standard deviations. 
 
 ##### Applying Machine Learning
+
+<div>
+<div align="center">
+<p align="center"><b>Figure 5: Stratified Sampling</b></p>
+<p>Source:<a href="http://www.six-sigma-material.com/Samples.html"> Six Sigma Material</a></p>
+<img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/StratifiedSampling.GIF" align="middle" width="482" height="164" />
+</div>
+</div>
+
+
+
+
+
 With the success metric finalized, we then proceeed to implement the algorithms detailed in the previous section. Originally, the models were implemented using a 80%:20% split between training and testing data. However, experimenting with the various models showed that increasing the size of the training data set significantly improved model performance. Ultimately, the models were run using a 90%:10% split between training (14,946 observations) and testing (1,661 observations). 
 
 All models were first run using their default setting, while SVM + RBF, linear SVM, and logistic regression were run a second time after tuning the hyper-parameters with Bayesian optimization (see below). Mean F2 scores, recall, and precison were derived from 100-fold cross validation of the testing data. As a final note, it quickly became evident that the SVM + RBF kernel model was by far, the most computationally expensive. Including the tuning of hyper-parameters (see below), implementation of the SVM + RBF model took approximately 17 hours.
@@ -158,7 +171,7 @@ The below figure illustrates the second and third iterations of this process in 
 The true distribution of F1 scores is represented by the dashed line, but in reality is unknown. The dots represent derived F2 scores. The continuous line represents the inferred distribution of F2 score. The blue areas represent aa 95% confidence interval for the inferred distribution, or in other words, represent areas of potential information gain.  
 <div>
 <div align="center">
-<p align="center"><b>Figure 5: An Acquisition Function Combing a Unidimensional Space for Two Iterations</b></p>
+<p align="center"><b>Figure 6: An Acquisition Function Combing a Unidimensional Space for Two Iterations</b></p>
 <p>Source:<a href="https://advancedoptimizationatharvard.wordpress.com/2014/04/28/bayesian-optimization-part-ii/"> Bayesian Optimization and Its Applications Part II, gauravbharaj, April 28, 2014</a></p>
 <img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/bayesian_optimization.png" align="middle" width="591" height="387" />
 </div>
@@ -188,7 +201,7 @@ The optimal model in terms of F2 score, recall, but also precision was the linea
 It is striking how the AUC scores for the precision-recall curves imply a very different performance ranking than what the F2 scores report. Looking to the figures below, we can see that the linear SVM with hyper-parameter tuning actually has the lowest AUC of any of the curves (AUC = 0.10). These AUC scores are based upon average precision as opposed to recall. However, it is recall, not precision, that is our priority here. Nevertheless, it is worthing bearing in mind that more often than not, the price for greater recall is precision and vice versa.    
 
 <div align="center">
-<p align="center"><b>Figure 6: Precision-Recall Curves of All Three Algorithms with and without Hyper-Parameter Tuning </b></p>
+<p align="center"><b>Figure 7: Precision-Recall Curves of All Three Algorithms with and without Hyper-Parameter Tuning </b></p>
 <img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/SVM_with_RBF.png" width="432" height="360" />
 <img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/Linear_SVM.png" width="432" height="360" />
 </div>

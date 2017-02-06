@@ -70,10 +70,11 @@ It bears noting that 'br_name' (the name of the visitor’s browser), 'os_name' 
 ### Data Exploration
 Exploring the transformed data, two features quickly become apparent. First, we can see that the data is highly imbalanced. Only approximately 6% of the labeled accounts show a succesful conversion to paying customer. 
 
-<br>
+<div>
 <div align="center">
 <p align="center"><b>Figure 2: Summary Statistics - Distribution of Labels (16,607 Observations)</b></p>
 <img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/exploratory_analysis-labels.png" align="middle" width="600" height="225" />
+</div>
 </div>
 
 The second feature of note is that in addition to our feature space being wide with over 500 features, the features themselves are fairly sparse as the histograms below make clear. This is to be expected. The Snowpow features are highly specific. Examples include counts of certain types of events localized within Bangladesh, or the number page views associated with a bit of on-line content that was only made briefly available. As a result, the majority of features are extremely sparse.       
@@ -141,7 +142,7 @@ As a final touch, we drop all columns which contain no useful information (i.e. 
 ##### Exploring the Transformed Data
 By using 'Notebook 2 - Exploratory Analysis,' we can get a sense of the scope and structure of the transformed data. After reading in the data and necessary packages, we print such essential information as the number of observations and the number of features. This iPython notebook also creates the visualizations used in the **Data Exploration** sections, including a horizonatal barchart illustrating the imbalanaced nature of the data, as well as histograms of the features' means and standard deviations. 
 
-##### Applying Machine Learning
+##### Establishing a Benchmark
 It is at this stage that we employ machine learning - our first task being to establish a benchmark of model performance. A detailed discussion of why we chose the algorithms we did is available in the section entitled **Algorithms and Techniques**. To create this benchmark, we use 'Notebook 3 - KNN (Baseline).' After reading in the transformed data and packages, we subset the features into the X_all object, and the labels into the y_all object. Bias can be a potential issue if the features' variance varies significantly. To prevent this, we rescale the features using Scikit-Learn's [RobustScaler](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.RobustScaler.html) function. This function removes the median and re-scales the data according to the interquartile range - the range between the 1st and 3rd quartiles. This rescaling technique tends to be more robust to outliers compared to simply subtracting the mean and dividing by the standard deviation.
 
 With the features rescaled, we then split the data into training and testing sets using the [train_test_split](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html) function. For the purposes of replicability, we set the 'random_state' argument to *random_state=1*. Originally, the models were implemented using a 80%:20% split between training and testing data. However, experimenting with the various models showed that increasing the size of the training data set significantly improved model performance. Ultimately, all models were run using a 90%:10% split between training (14,946 observations) and testing (1,661 observations). 
@@ -160,13 +161,19 @@ Stratified sampling works by aggregating observations on the class variable. In 
 
 With the data partitioned, we then use [KNeighborsClassifier](http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html#sklearn.neighbors.KNeighborsClassifier) to create a classifer, and apply it to the training data. With our model fit, we then use Scikit-Learn's [cross_val_score](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.cross_val_score.html) function to score the model's performance when applied to the test data. [Cross validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)) works by taking *k* subsets of the data, deriving a metric of interest from each subset, and then averaging the results. To guard against anomalous results, we use 100 subsets for our cross-validation.
 
-As for our "metric of interest," recall that our success metric is the F2 score. To instruct the *cross_val_score* function to derive the F2 score, we use the [make_scorer](http://scikit-learn.org/stable/modules/generated/sklearn.metrics.make_scorer.html) function with 'fbeta_score' as the metric, making sure to set the beta argument to *beta=2*.
+As for our "metric of interest," recall that our success metric is the F2 score. To instruct the *cross_val_score* function to derive the F2 score, we use the [make_scorer](http://scikit-learn.org/stable/modules/generated/sklearn.metrics.make_scorer.html) function with 'fbeta_score' as the metric, making sure to set the beta argument to *beta=2*. With our scorer in hand, we derive 100 F2 score and average them together for our benchmark (F2 = 0.04). 
 
+##### Applying More Sophisticated Models
+By this point, our basic procedure is established: 
+* (1.) Read in the data
+* (2.) Create separate data objects for the features and labels
+* (3.) Rescale the data
+* (4.) Create testing and training sets with a 90% to 10%, making sure to use stratified sampling on the labels
+* (5.) Create the classifier and train it on the training set
+* (6.) Use the newly trained classifer on the testing data set
+* (7.) Derive the F2 score one hundred times and take the mean result, repeat for recall and precision
 
-
-
-
-All models were first run using their default setting, while SVM + RBF, linear SVM, and logistic regression were run a second time after tuning the hyper-parameters with Bayesian optimization (see below). Mean F2 scores, recall, and precison were derived from 100-fold cross validation of the testing data. As a final note, it quickly became evident that the SVM + RBF kernel model was by far, the most computationally expensive. Including the tuning of hyper-parameters (see below), implementation of the SVM + RBF model took approximately 17 hours.
+We repeat this workflow in the iPython notebooks 'Notebook 4 - SVM with RBF Kernel,' 'Notebook 5 - Linear SVM,' and 'Notebook 6 - Logistic Regression' - the only varying element being the type of classifier used. As a final note, it quickly became evident that the SVM + RBF kernel model was by far, the most computationally expensive. Including the tuning of hyper-parameters (see below), implementation of the SVM + RBF model took approximately 17 hours.
 
 ### Refinement
 In theory, we should be able to improve upon the baseline models by tuning the models' hyper-parameters. Our primary hyper-parameters of interest are C and gamma for the SVM + RBF model, and just C for the linear SVM model. Recall that C is the penalty parameter - how much we penalize our model for incorrect classifications. A higher C value holds the promise of greater accuracy, but at the risk of overfitting. The selection of the the gamma hyper-parameter determines the variance of the distributions generated by the [RBF kernel](https://www.youtube.com/watch?v=3liCbRZPrZA), with a large gamma tending to lead to higher bias but lower variance. 

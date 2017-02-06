@@ -144,8 +144,11 @@ By using 'Notebook 2 - Exploratory Analysis,' we can get a sense of the scope an
 ##### Applying Machine Learning
 It is at this stage that we employ machine learning - our first task being to establish a benchmark of model performance. A detailed discussion of why we chose the algorithms we did is available in the section entitled **Algorithms and Techniques**. To create this benchmark, we use 'Notebook 3 - KNN (Baseline).' After reading in the transformed data and packages, we subset the features into the X_all object, and the labels into the y_all object. Bias can be a potential issue if the features' variance varies significantly. To prevent this, we rescale the features using Scikit-Learn's [RobustScaler](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.RobustScaler.html) function. This function removes the median and re-scales the data according to the interquartile range - the range between the 1st and 3rd quartiles. This rescaling technique tends to be more robust to outliers compared to simply subtracting the mean and dividing by the standard deviation.
 
+With the features rescaled, we then split the data into training and testing sets using the [train_test_split](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html) function. For the purposes of replicability, we set the 'random_state' argument to *random_state=1*. Originally, the models were implemented using a 80%:20% split between training and testing data. However, experimenting with the various models showed that increasing the size of the training data set significantly improved model performance. Ultimately, all models were run using a 90%:10% split between training (14,946 observations) and testing (1,661 observations). 
 
+Sampling the data into training and testing sets is complicated by the highly imbalanced nature of the data. More often than not, the ratio of converted customers to non-converted customers should be comparable between the training and testing sets. However, with relative few members in the 'converted' class, there is always the possibility of unequal sampling and subsequent bias. To address this concern, I use stratified sampling on the dependent variable - 'cc.' 
 
+Stratified sampling works by aggregating observations on the class variable. In effect, instead of randomly taking 90% of the data for the training set, the computer takes 90% of the data where cc = 0, takes 90% of the data where cc = 1, and then combines the results into our training set. With this approach, we can ensure that our training and test sets do not vary in their composition of classes. 
 
 <div>
 <div align="center">
@@ -154,12 +157,6 @@ It is at this stage that we employ machine learning - our first task being to es
 <img src="https://github.com/b-knight/Understanding-Customer-Conversion-with-Snowplow-Web-Event-Tracking/blob/master/Images/StratifiedSampling.GIF" align="middle" width="482" height="164" />
 </div>
 </div>
-
-
-
-
-
-With the success metric finalized, we then proceeed to implement the algorithms detailed in the previous section. Originally, the models were implemented using a 80%:20% split between training and testing data. However, experimenting with the various models showed that increasing the size of the training data set significantly improved model performance. Ultimately, the models were run using a 90%:10% split between training (14,946 observations) and testing (1,661 observations). 
 
 All models were first run using their default setting, while SVM + RBF, linear SVM, and logistic regression were run a second time after tuning the hyper-parameters with Bayesian optimization (see below). Mean F2 scores, recall, and precison were derived from 100-fold cross validation of the testing data. As a final note, it quickly became evident that the SVM + RBF kernel model was by far, the most computationally expensive. Including the tuning of hyper-parameters (see below), implementation of the SVM + RBF model took approximately 17 hours.
 

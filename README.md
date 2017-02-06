@@ -138,6 +138,9 @@ With feature transformation complete, we create a vector of labels - 'cc' - usin
 
 As a final touch, we drop all columns which contain no useful information (i.e. columns only consisting of zeros). In this fashion we condense 14.6 million events into a working data set of 16,607 observations and 581 features.
 
+##### Exploring the Transformed Data
+By using 'Notebook 2 - Exploratory Analysis,' we can get a sense of the scope and structure of the transformed data. After reading in the data and necessary packages, we print such essential information as the number of observations and the number of features. This iPython notebook also creates the visualizations used in the **Data Exploration** sections, including a horizonatal barchart illustrating the imbalanaced nature of the data, as well as histograms of the features' means and standard deviations. 
+
 ##### Applying Machine Learning
 With the success metric finalized, we then proceeed to implement the algorithms detailed in the previous section. Originally, the models were implemented using a 80%:20% split between training and testing data. However, experimenting with the various models showed that increasing the size of the training data set significantly improved model performance. Ultimately, the models were run using a 90%:10% split between training (14,946 observations) and testing (1,661 observations). 
 

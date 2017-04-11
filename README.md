@@ -205,6 +205,7 @@ The optimal model in terms of F2 score, recall, but also precision was the linea
 <div align="center">
 <p align="center"><b>Table 2: Comparision of Performance Metrics Averaged from 100-Fold Cross Validation</b></p>
 </div>
+
 |              Model Used                                                 | F2 Score | Recall  | Precision |
 | :---------------------------------------------------------------------- | :------: | :-----: | :-------: |
 |<sub> K-Nearest Neighbors (Baseline)                                     |   0.04   |  0.04   | 0.04      |

@@ -27,25 +27,25 @@ The raw Snowplow data available is approximately 15 gigabytes spanning over 300 
 | <sub>*event_id*</sub>              | <sub>The unique Snowplow event identifier</sub>                                 |
 | <sub>*account_id*</sub>            | <sub>The account number if an account is associated with the domain userid</sub>|
 | <sub>*reg_date*</sub>              | <sub>The date an account was registered </sub>                                  |
-| <sub>*cc_date_added*</sub>    | <sub>The date a credit card was added                                                     |
-| <sub>*collector_tstamp*</sub> | <sub>The timestamp (in UTC) when the Snowplow collector first recorded the event          |
-| <sub>*domain_userid*</sub>    | <sub>This corresponds to a Snowplow cookie and will tend to correspond to a single internet device|
-| <sub>*domain_sessionidx*</sub>     | <sub>The number of sessions to date that the domain userid has been tracked               |
-| <sub>*domain_sessionid*</sub>      | <sub>The unique identifier for the Snowplow cookie/session                                |
-| <sub>*event_name*</sub>            | <sub>The type of event recorded                                                           |
-| <sub>*geo_country*</sub>           | <sub>The ISO 3166-1 code for the country that the visitor’s IP address is located         |
-| <sub>*geo_region_name*</sub>       | <sub>The ISO-3166-2 code for country region that the visitor’s IP address is in           |
-| <sub>*geo_city*</sub>              | <sub>The city the visitor’s IP address is in                                              |
-| <sub>*page_url*</sub>              | <sub>The page URL                                                                         |
-| <sub>*page_referrer*</sub>         | <sub>The URL of the referrer (previous page)                                              |
-| <sub>*mkt_medium*</sub>            | <sub>The type of traffic source (e.g. ’cpc’, ’affiliate’, ’organic’, ’social’)            |
-| <sub>*mkt_source*</sub>            | <sub>The company / website where the traffic came from (e.g. ’Google’, ’Facebook’)        |
-| <sub>*se_category*</sub>           | <sub>The event type                                                                       |
-| <sub>*se_action*</sub>             | <sub>The action performed / event name (e.g. ’add-to-basket’, ’play-video’)               |
-| <sub>*br_name*</sub>               | <sub>The name of the visitor’s browser                                                    |
-| <sub>*os_name*</sub>               | <sub>The name of the vistor’s operating system                                            |
-| <sub>*os_timezone*</sub>           | <sub>The client’s operating system timezone                                               |
-| <sub>*dvce_ismobile*</sub>         | <sub>Is the device mobile? (1 = ’yes’)                                                    |
+| <sub>*cc_date_added*</sub>    | <sub>The date a credit card was added </sub>                                                   |
+| <sub>*collector_tstamp*</sub> | <sub>The timestamp (in UTC) when the Snowplow collector first recorded the event </sub>          |
+| <sub>*domain_userid*</sub>    | <sub>This corresponds to a Snowplow cookie and will tend to correspond to a single internet device</sub> |
+| <sub>*domain_sessionidx*</sub>     | <sub>The number of sessions to date that the domain userid has been tracked</sub>                |
+| <sub>*domain_sessionid*</sub>      | <sub>The unique identifier for the Snowplow cookie/session</sub>                                 |
+| <sub>*event_name*</sub>            | <sub>The type of event recorded</sub>                                                            |
+| <sub>*geo_country*</sub>           | <sub>The ISO 3166-1 code for the country that the visitor’s IP address is located</sub>          |
+| <sub>*geo_region_name*</sub>       | <sub>The ISO-3166-2 code for country region that the visitor’s IP address is in</sub>            |
+| <sub>*geo_city*</sub>              | <sub>The city the visitor’s IP address is in</sub>                                               |
+| <sub>*page_url*</sub>              | <sub>The page URL</sub>                                                                          |
+| <sub>*page_referrer*</sub>         | <sub>The URL of the referrer (previous page)</sub>                                               |
+| <sub>*mkt_medium*</sub>            | <sub>The type of traffic source (e.g. ’cpc’, ’affiliate’, ’organic’, ’social’)</sub>             |
+| <sub>*mkt_source*</sub>            | <sub>The company / website where the traffic came from (e.g. ’Google’, ’Facebook’)</sub>         |
+| <sub>*se_category*</sub>           | <sub>The event type</sub>                                                                        |
+| <sub>*se_action*</sub>             | <sub>The action performed / event name (e.g. ’add-to-basket’, ’play-video’)</sub>                |
+| <sub>*br_name*</sub>               | <sub>The name of the visitor’s browser</sub>                                                     |
+| <sub>*os_name*</sub>               | <sub>The name of the vistor’s operating system</sub>                                             |
+| <sub>*os_timezone*</sub>           | <sub>The client’s operating system timezone</sub>                                                |
+| <sub>*dvce_ismobile*</sub>         | <sub>Is the device mobile? (1 = ’yes’)</sub>                                                     |
 
 I use the phrase 'variable' as opposed to 'feature', since this dataset will need to undergo substantial transformation before we can employ any supervised learning technique. Each row has an 'event_id' along with an 'event_name' and a ‘page url.’ The event id is the row’s unique identifier, the event name is the type of event, and the page url is the URL within the marketing site where the event took place.
 

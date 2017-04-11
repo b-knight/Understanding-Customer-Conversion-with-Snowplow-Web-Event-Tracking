@@ -22,11 +22,18 @@ The F2 score is derived from the [F1 score](https://en.wikipedia.org/wiki/F1_sco
 The raw Snowplow data available is approximately 15 gigabytes spanning over 300 variables and tens of millions of events from November 2015 to January 2017. When we omit fields that are not in active use, are redundant, contain personal identifiable information (P.I.I.), or which cannot have any conceivable bearing on customer conversion, then we are left with 14.6 million events spread across 22 variables. 
 
 <p align="center"><b>Table 1: Selected Snowplow Variables Prior to Preprocessing</b></p>
-|<sub>Snowplow Variable Name</sub>   |<sub>Snowplow Variable Description</sub>                                         |
-| ---------------------------------- |---------------------------------------------------------------------------------| 
-| <sub>*event_id*</sub>              | <sub>The unique Snowplow event identifier</sub>                                 |
-| <sub>*account_id*</sub>            | <sub>The account number if an account is associated with the domain userid</sub>|
-| <sub>*reg_date*</sub>              | <sub>The date an account was registered </sub>                                  |
+
+First Header | Second Header
+------------ | -------------
+Content from cell 1 | Content from cell 2
+Content in the first column | Content in the second column
+
+
+<sub>Snowplow Variable Name</sub>   | <sub>Snowplow Variable Description</sub>                                         
+---------------------------------- | ---------------------------------------------------------------------------------
+<sub>event_id</sub>              | <sub>The unique Snowplow event identifier</sub>                                 
+<sub>account_id</sub>            | <sub>The account number if an account is associated with the domain userid</sub>
+<sub>reg_date</sub>              | <sub>The date an account was registered </sub>                                  
 | <sub>*cc_date_added*</sub>    | <sub>The date a credit card was added </sub>                                                   |
 | <sub>*collector_tstamp*</sub> | <sub>The timestamp (in UTC) when the Snowplow collector first recorded the event </sub>          |
 | <sub>*domain_userid*</sub>    | <sub>This corresponds to a Snowplow cookie and will tend to correspond to a single internet device</sub> |

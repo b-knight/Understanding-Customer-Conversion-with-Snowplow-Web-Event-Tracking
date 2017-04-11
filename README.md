@@ -23,12 +23,6 @@ The raw Snowplow data available is approximately 15 gigabytes spanning over 300 
 
 <p align="center"><b>Table 1: Selected Snowplow Variables Prior to Preprocessing</b></p>
 
-First Header | Second Header
------------- | -------------
-Content from cell 1 | Content from cell 2
-Content in the first column | Content in the second column
-
-
 <sub>Snowplow Variable Name</sub>   | <sub>Snowplow Variable Description</sub>                                         
 ---------------------------------- | ---------------------------------------------------------------------------------
 <sub>event_id</sub>              | <sub>The unique Snowplow event identifier</sub>                                 
